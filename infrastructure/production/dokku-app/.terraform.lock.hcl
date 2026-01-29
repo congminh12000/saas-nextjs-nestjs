@@ -1,0 +1,43 @@
+# This file is maintained automatically by "terraform init".
+# Manual edits may be lost in future updates.
+
+provider "registry.terraform.io/aaronstillwell/dokku" {
+  version     = "0.5.3"
+  constraints = "~> 0.5.3"
+  hashes = [
+    "h1:Qw8VDn94xF/JGFvMxrSf5LYxs/GMZZ557vxTRd+4wyM=",
+    "zh:08c2cd99737681266805b3721528560c0ced93a6694ae4fef37c9241bc8a8b76",
+    "zh:1462bd8cf2f12b1cbd28be643e03a1000af556391aabf4bd777474eaf5bc0cec",
+    "zh:163fb7e9759470e6a5df43db79eb10d88ef1e026b25031dff218c6e68d84d2a0",
+    "zh:26a9fb9d37817ed3eb08f0a47d9053f9736276472ce8023a2ac4e76c8357301b",
+    "zh:42777282fe19dd39aa3d64875d4fe0c22ee856062b8bb31834ca7a7e839642e8",
+    "zh:6fcb1514c0c9193bde703c283016033c827c35be418a9fb384b31a021c6ca197",
+    "zh:78839f12ff9d3d8d6d7461e02d176a4190e056e6c3b6f244b9a8d9b5e4a83f85",
+    "zh:88071629f60840b5ab7d2dfe2cb6d89600afdaf0874a5afe9ee35ba97fb7917b",
+    "zh:a231ffb6529754de4b11559bef6c7d356c54902a832a2c862eb07f0f8663ffe0",
+    "zh:a48d828fc62c6521841fb80a315a502d62a627f04bb78587406fb5dcb7865476",
+    "zh:a7990f3fdbe2aa70d261522f486d78e702471414eec027591d32813a8fb38f88",
+    "zh:acfba4e7a0f142a4509a0416c7aa70c0679e7736b135cf02546032e9bba965fb",
+    "zh:ca098f9ddbe6c46b927a751ef4b9502d55ffea1402ce58b7ea8e91b547ce6afa",
+    "zh:ccc6a4fdb77b7254c0bcd07f3de55506c6c87db1b7f6c1e3b55bffe2406e0f5a",
+  ]
+}
+
+provider "registry.terraform.io/hashicorp/null" {
+  version = "3.2.4"
+  hashes = [
+    "h1:L5V05xwp/Gto1leRryuesxjMfgZwjb7oool4WS1UEFQ=",
+    "zh:59f6b52ab4ff35739647f9509ee6d93d7c032985d9f8c6237d1f8a59471bbbe2",
+    "zh:78d5eefdd9e494defcb3c68d282b8f96630502cac21d1ea161f53cfe9bb483b3",
+    "zh:795c897119ff082133150121d39ff26cb5f89a730a2c8c26f3a9c1abf81a9c43",
+    "zh:7b9c7b16f118fbc2b05a983817b8ce2f86df125857966ad356353baf4bff5c0a",
+    "zh:85e33ab43e0e1726e5f97a874b8e24820b6565ff8076523cc2922ba671492991",
+    "zh:9d32ac3619cfc93eb3c4f423492a8e0f79db05fec58e449dee9b2d5873d5f69f",
+    "zh:9e15c3c9dd8e0d1e3731841d44c34571b6c97f5b95e8296a45318b94e5287a6e",
+    "zh:b4c2ab35d1b7696c30b64bf2c0f3a62329107bd1a9121ce70683dec58af19615",
+    "zh:c43723e8cc65bcdf5e0c92581dcbbdcbdcf18b8d2037406a5f2033b1e22de442",
+    "zh:ceb5495d9c31bfb299d246ab333f08c7fb0d67a4f82681fbf47f2a21c3e11ab5",
+    "zh:e171026b3659305c558d9804062762d168f50ba02b88b231d20ec99578a6233f",
+    "zh:ed0fe2acdb61330b01841fa790be00ec6beaac91d41f311fb8254f74eb6a711f",
+  ]
+}
