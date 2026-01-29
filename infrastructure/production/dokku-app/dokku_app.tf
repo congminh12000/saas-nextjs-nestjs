@@ -1,5 +1,5 @@
 resource "dokku_app" "frontend_app" {
-  name = "use-miller-frontend"
+  name = "saas-nextjs nestjs-frontend"
 
   config_vars = {
     APP_BASE                    = "apps/frontend"
@@ -19,7 +19,7 @@ resource "dokku_app" "frontend_app" {
 }
 
 resource "dokku_app" "app" {
-  name = "use-miller"
+  name = "saas-nextjs nestjs"
 
   config_vars = {
     APP_BASE                           = "apps/backend"
@@ -69,7 +69,7 @@ resource "dokku_app" "app" {
 
 # Create accompanying services...
 resource "dokku_postgres_service" "app-postgres" {
-  name          = "use-miller-postgres"
+  name          = "saas-nextjs nestjs-postgres"
   image_version = "14.4"
 }
 
@@ -82,7 +82,7 @@ resource "dokku_postgres_service_link" "postgres-link" {
 }
 
 resource "dokku_redis_service" "app-redis" {
-  name = "use-miller-redis"
+  name = "saas-nextjs nestjs-redis"
 }
 
 resource "dokku_redis_service_link" "redis-link" {

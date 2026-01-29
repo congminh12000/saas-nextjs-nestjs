@@ -9,7 +9,7 @@ export default function Home() {
             seoDescription="Read how Miller collects, uses, and safeguards personal data, and how you can contact us with privacy questions."
             seoTitle={`Dev tools to save you time`}
             canonicalUrl="https://usemiller.dev/privacy"
-            headerTitle="Miller Dev Tools"
+            headerTitle="Saas Nextjs Nestjs"
             themeColor="violet"
         >
             <Container>

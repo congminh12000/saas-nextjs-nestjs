@@ -286,7 +286,7 @@ export class UserOnboardingService {
                         },
                         {
                             owner: "darraghoriordan",
-                            repo: "use-miller",
+                            repo: "saas-nextjs nestjs",
                             username: u,
                         },
                     );

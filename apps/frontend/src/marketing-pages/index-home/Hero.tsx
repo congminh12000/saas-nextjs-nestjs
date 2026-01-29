@@ -77,7 +77,7 @@ export function Hero({ user }: { user: UserDto }) {
         {
             title: "Miller Start",
             blurb: "Security-first NestJS template with hardened defaults",
-            githubUrl: "https://github.com/darraghoriordan/use-miller",
+            githubUrl: "https://github.com/darraghoriordan/saas-nextjs nestjs",
             learnMoreLinkUrl: "/miller-start",
             learnMoreLinkText: "Explore template",
             altLinkText: "Preview source",

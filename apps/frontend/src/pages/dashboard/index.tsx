@@ -32,7 +32,7 @@ export default function Home({
             menuHeaderTitle="Dashboard"
             menuHeaderHref="/dashboard"
             menuSections={menuSections}
-            headerTitle={"Miller Dev Tools"}
+            headerTitle={"Saas Nextjs Nestjs"}
         >
             <DashboardDetails
                 subs={subs}

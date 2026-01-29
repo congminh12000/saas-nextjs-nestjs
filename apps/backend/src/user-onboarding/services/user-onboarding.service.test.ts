@@ -287,7 +287,7 @@ describe("UserOnboardingService", () => {
             });
             expect(mockGhService.addCollaborator).toHaveBeenCalledWith({
                 owner: "darraghoriordan",
-                repo: "use-miller",
+                repo: "saas-nextjs nestjs",
                 username: "testuser",
             });
         });

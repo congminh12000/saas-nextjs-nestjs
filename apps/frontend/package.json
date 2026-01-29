@@ -1,5 +1,5 @@
 {
-    "name": "@use-miller/frontend",
+    "name": "@saas-nextjs nestjs/frontend",
     "version": "1.0.0",
     "private": true,
     "scripts": {

@@ -109,8 +109,8 @@ $ pnpm run db:run
 
 ```bash
 # add dokku remote (only need to run this once)
-git remote add dokku dokku@YOURdokkuSERVER:use-miller
-git remote add dokkufe dokku@YOURdokkuSERVER:use-miller-frontend
+git remote add dokku dokku@YOURdokkuSERVER:saas-nextjs nestjs
+git remote add dokkufe dokku@YOURdokkuSERVER:saas-nextjs nestjs-frontend
 ```
 
 ```bash

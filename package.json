@@ -1,5 +1,5 @@
 {
-    "name": "use-miller",
+    "name": "saasnextjsnestjs",
     "version": "1.0.1",
     "description": "Dev tooling",
     "private": true,
@@ -8,9 +8,9 @@
     "packageManager": "pnpm@10.27.0",
     "repository": {
         "type": "git",
-        "url": "https://github.com/darraghoriordan/use-miller.git"
+        "url": "https://github.com/darraghoriordan/saasnextjsnestjs.git"
     },
-    "author": "Use Miller",
+    "author": "Saas Nextjs Nestjs",
     "engines": {
         "node": "24.x"
     },
@@ -30,10 +30,10 @@
         "pb": "git push dokku main",
         "pf": "git push dokkufe main",
         "code-repo:init": "node ./libs/project-deploy/init-code-repos.cjs",
-        "docker:be": "docker build . --ssh usemiller=$HOME/.ssh/useMiller --ssh macsetup=$HOME/.ssh/macSetupScript --ssh nestbackend=$HOME/.ssh/nestBackendLibs -f ./Dockerfile-be -t use-miller/backend-api:latest -t dokku/use-miller:v1.0.0",
-        "md:be": "docker save dokku/use-miller:v1.0.0 | ssh dokku-as-darragh \"docker load\" && ssh dokku-as-darragh \"dokku tags:set use-miller v1.0.0\"",
-        "docker:fe": "docker build . -f ./Dockerfile-fe -t use-miller/frontend:latest -t dokku/use-miller-frontend:v1.0.0",
-        "md:fe": "docker save dokku/use-miller:v1.0.0 | ssh dokku-as-darragh \"docker load\""
+        "docker:be": "docker build . --ssh usemiller=$HOME/.ssh/useMiller --ssh macsetup=$HOME/.ssh/macSetupScript --ssh nestbackend=$HOME/.ssh/nestBackendLibs -f ./Dockerfile-be -t saasnextjsnestjs/backend-api:latest -t dokku/saasnextjsnestjs:v1.0.0",
+        "md:be": "docker save dokku/saasnextjsnestjs:v1.0.0 | ssh dokku-as-darragh \"docker load\" && ssh dokku-as-darragh \"dokku tags:set saasnextjsnestjs v1.0.0\"",
+        "docker:fe": "docker build . -f ./Dockerfile-fe -t saasnextjsnestjs/frontend:latest -t dokku/saasnextjsnestjs-frontend:v1.0.0",
+        "md:fe": "docker save dokku/saasnextjsnestjs:v1.0.0 | ssh dokku-as-darragh \"docker load\""
     },
     "dependencies": {
         "@commitlint/cli": "20.3.1",

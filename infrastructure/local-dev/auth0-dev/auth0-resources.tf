@@ -1,5 +1,5 @@
 resource "auth0_tenant" "dev_tenant" {
-  friendly_name     = "use-miller app (Development)"
+  friendly_name     = "saasnextjsnestjs app (Development)"
   default_directory = "Username-Password-Authentication"
 
   oidc_logout {
@@ -8,7 +8,7 @@ resource "auth0_tenant" "dev_tenant" {
 }
 
 resource "auth0_client" "frontend_spa_app" {
-  name        = "Use Miller Web App (Local Dev)"
+  name        = "Saas Nextjs Nestjs Web App (Local Dev)"
   description = "The frontend client application"
   app_type    = "regular_web"
   callbacks = ["http://localhost:3000",

@@ -176,7 +176,7 @@ chown dokku:dokku /home/dokku/.ssh/macSetupScript
 chown dokku:dokku /home/dokku/.ssh/nestBackendLibs
 
 # update the docker build commend arguments on dokku to have named ssh key mounts
-dokku docker-options:add use-miller build '--ssh usemiller=$HOME/.ssh/useMiller --ssh macsetup=$HOME/.ssh/macSetupScript --ssh nestbackend=$HOME/.ssh/nestBackendLibs'
+dokku docker-options:add saas-nextjs nestjs build '--ssh usemiller=$HOME/.ssh/useMiller --ssh macsetup=$HOME/.ssh/macSetupScript --ssh nestbackend=$HOME/.ssh/nestBackendLibs'
 ```
 
 ## Configure dokku for Docker deploys
@@ -188,36 +188,36 @@ I recommend using Let's Encrypt for ssh if you're using dokku. It's free and eas
 ```bash
 # To change dokku apps to support docker deploy
 # remove the existing "buildpack" config
-dokku config:unset --no-restart use-miller-frontend DOKKU_PROXY_PORT_MAP
-dokku config:unset --no-restart use-miller DOKKU_PROXY_PORT_MAP
+dokku config:unset --no-restart saas-nextjs nestjs-frontend DOKKU_PROXY_PORT_MAP
+dokku config:unset --no-restart saas-nextjs nestjs DOKKU_PROXY_PORT_MAP
 
 # if using multiple docker files set the file
-dokku builder-dockerfile:set use-miller-frontend dockerfile-path Dockerfile-fe
-dokku builder-dockerfile:set use-miller dockerfile-path Dockerfile-be
+dokku builder-dockerfile:set saas-nextjs nestjs-frontend dockerfile-path Dockerfile-fe
+dokku builder-dockerfile:set saas-nextjs nestjs dockerfile-path Dockerfile-be
 
 ## if using a monorepo you can set config file paths
-dokku app-json:set use-miller appjson-path apps/backend/app.json
-dokku app-json:set use-miller-frontend appjson-path apps/frontend/app.json
+dokku app-json:set saas-nextjs nestjs appjson-path apps/backend/app.json
+dokku app-json:set saas-nextjs nestjs-frontend appjson-path apps/frontend/app.json
 # you should try to deploy now
 # (on your dev machine)
-git remote add dokku dokku@YOURdokkuSERVER:use-miller
-git remote add dokkufe dokku@YOURdokkuSERVER:use-miller-frontend
+git remote add dokku dokku@YOURdokkuSERVER:saas-nextjs nestjs
+git remote add dokkufe dokku@YOURdokkuSERVER:saas-nextjs nestjs-frontend
 
 git push dokku main:master
 git push dokkufe main:master
 
 # set the ports (after a successful deployment)
-dokku proxy:ports-add use-miller-frontend http:80:5000
-dokku letsencrypt:enable use-miller-frontend
-dokku proxy:ports-add use-miller-frontend https:443:5000
+dokku proxy:ports-add saas-nextjs nestjs-frontend http:80:5000
+dokku letsencrypt:enable saas-nextjs nestjs-frontend
+dokku proxy:ports-add saas-nextjs nestjs-frontend https:443:5000
 
-dokku proxy:ports-add use-miller http:80:5000
-dokku letsencrypt:enable use-miller
-dokku proxy:ports-add use-miller https:443:5000
+dokku proxy:ports-add saas-nextjs nestjs http:80:5000
+dokku letsencrypt:enable saas-nextjs nestjs
+dokku proxy:ports-add saas-nextjs nestjs https:443:5000
 
 # these port mappings are added automatically by dokku but aren't needed
-dokku proxy:ports-remove use-miller http:5000:5000
-dokku proxy:ports-remove use-miller-frontend http:5000:5000
+dokku proxy:ports-remove saas-nextjs nestjs http:5000:5000
+dokku proxy:ports-remove saas-nextjs nestjs-frontend http:5000:5000
 ```
 
 ## Common management tasks for dokku
@@ -230,12 +230,12 @@ ssh -i ~/.ssh/your-cert-name root@165.123.123.123
 dokku apps:list
 
 # show current config
-dokku config:show use-miller
+dokku config:show saas-nextjs nestjs
 
 # the frontend proxy buffering can be too small for some apps
-dokku nginx:set use-miller-frontend proxy-buffer-size 128k
-dokku nginx:set use-miller-frontend proxy-buffers "4 256k"
-dokku nginx:set use-miller-frontend proxy-busy-buffers-size 256k
+dokku nginx:set saas-nextjs nestjs-frontend proxy-buffer-size 128k
+dokku nginx:set saas-nextjs nestjs-frontend proxy-buffers "4 256k"
+dokku nginx:set saas-nextjs nestjs-frontend proxy-busy-buffers-size 256k
 ```
 
 ## Maintaining space on the droplet

@@ -31,9 +31,9 @@ Run `pnpm run mill:init` in the root and follow the instructions.
 
 ## Project name and these docs
 
-After running `mill:init` the projects should be renamed to match your project name. This means anywhere I use `use-miller` in the docs should be replaced with your project name.
+After running `mill:init` the projects should be renamed to match your project name. This means anywhere I use `saas-nextjs nestjs` in the docs should be replaced with your project name.
 
-e.g. `git remote add dokku dokku@YOURdokkuSERVER:use-miller` would be `git remote add dokku dokku@YOURdokkuSERVER:<YOUR_PROJECT_NAME>`
+e.g. `git remote add dokku dokku@YOURdokkuSERVER:saas-nextjs nestjs` would be `git remote add dokku dokku@YOURdokkuSERVER:<YOUR_PROJECT_NAME>`
 
 ## Running locally
 

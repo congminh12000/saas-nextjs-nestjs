@@ -8,22 +8,22 @@ terraform {
 
   # This stores the terraform state on a shared s3 bucket or digital oceans space
   # You don't really need this if you're a solo dev so it is commented out.
-  # If you're running terraform as part of a pipeline or similar or When you're 
-  # ready you can create a digital ocean spaces account or an AWS s3 bucket 
+  # If you're running terraform as part of a pipeline or similar or When you're
+  # ready you can create a digital ocean spaces account or an AWS s3 bucket
   # and store your terraform state there safely by doing a terraform init again
-  backend "s3" {
-    endpoints = {
-      s3 = "https://sfo3.digitaloceanspaces.com/"
-    }
-    bucket                      = "darragh-com"
-    key                         = "miller-app-terraform-state/digitalocean-hosting"
-    region                      = "us-east-1"
-    skip_credentials_validation = true
-    skip_metadata_api_check     = true
-    skip_requesting_account_id  = true
-    skip_s3_checksum            = true
-    profile                     = "digitaloceanspaces-terraform"
-  }
+  # backend "s3" {
+  #   endpoints = {
+  #     s3 = "https://sfo3.digitaloceanspaces.com/"
+  #   }
+  #   bucket                      = "saas-nextjs-nestjs"
+  #   key                         = "miller-app-terraform-state/digitalocean-hosting"
+  #   region                      = "us-east-1"
+  #   skip_credentials_validation = true
+  #   skip_metadata_api_check     = true
+  #   skip_requesting_account_id  = true
+  #   skip_s3_checksum            = true
+  #   profile                     = "digitaloceanspaces-terraform"
+  # }
   # End of shared state store block
 
 }

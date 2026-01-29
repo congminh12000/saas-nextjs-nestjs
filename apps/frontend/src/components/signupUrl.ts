@@ -15,12 +15,12 @@ export function getSignUpUrl({ productKey }: { productKey?: string }) {
 export function getGithubUrl({ productKey }: { productKey?: string }) {
     switch (productKey) {
         case "miller-start":
-            return "https://github.com/darraghoriordan/use-miller";
+            return "https://github.com/darraghoriordan/saas-nextjs nestjs";
         case "local-dev-tools":
             return "https://github.com/darraghoriordan/ssh-tool-new-electron";
         case "dev-shell":
             return "https://github.com/darraghoriordan/mac-setup-script";
         default:
-            return "https://github.com/darraghoriordan/use-miller";
+            return "https://github.com/darraghoriordan/saas-nextjs nestjs";
     }
 }

@@ -29,7 +29,7 @@ export class CoursesMetaService {
                             "/apps/frontend/src/pages/docs/[productKey]/[section]/[slug].tsx",
                         )}`,
                         demoFileLinkText: "/apps/frontend/src/pages",
-                        rootLocation: `${this.courseFileConfig.basePath}/use-miller`,
+                        rootLocation: `${this.courseFileConfig.basePath}/saas-nextjs nestjs`,
                         isOpenSource: true,
                     },
                     {

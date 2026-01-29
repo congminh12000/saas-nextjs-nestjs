@@ -79,7 +79,7 @@ export function Footer({
                     {/* Bottom bar */}
                     <div className="mt-8 pt-6 border-t border-security-border/50 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                         <p className="font-mono text-xs text-security-muted">
-                            &copy; {currentYear} Miller Dev Tools. All rights
+                            &copy; {currentYear} Saas Nextjs Nestjs. All rights
                             reserved.
                         </p>
                         <div className="flex items-center gap-6 text-xs">

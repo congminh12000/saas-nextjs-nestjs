@@ -9,7 +9,7 @@ export default function Home() {
             seoDescription="Learn who builds Miller and why the tools focus on speed, simplicity, and helping you ship reliable software faster."
             seoTitle={`Dev tools to save you time`}
             canonicalUrl="https://usemiller.dev/about"
-            headerTitle="Miller Dev Tools"
+            headerTitle="Saas Nextjs Nestjs"
             themeColor="violet"
         >
             <Container>

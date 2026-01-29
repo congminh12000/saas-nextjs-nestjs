@@ -94,3 +94,6 @@ services:
             - ./infrastructure/prometheus.yaml:/etc/prometheus/prometheus.yml
         ports:
             - "9090:9090"
+    # app:
+    #     extra_hosts:
+    #         host.docker.internal: host-gateway

@@ -25,12 +25,12 @@ async function main() {
         await exec(
             "cd code-repos && git clone git@" +
                 process.argv[2] +
-                ":darraghoriordan/use-miller.git --depth 1",
+                ":darraghoriordan/saas-nextjs nestjs.git --depth 1",
         );
         rimraf.sync("code-repos/nest-backend-libs/.git");
         rimraf.sync("code-repos/ssh-tool-new-electron/.git");
         rimraf.sync("code-repos/mac-setup-script/.git");
-        rimraf.sync("code-repos/use-miller/.git");
+        rimraf.sync("code-repos/saas-nextjs nestjs/.git");
         console.log("Done!");
     } catch (error) {
         console.error(`exec error: ${error}`);

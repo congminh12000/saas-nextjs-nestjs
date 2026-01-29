@@ -4,7 +4,7 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
     content: [
         "./src/**/*.{js,jsx,ts,tsx}",
-        "node_modules/@use-miller/shared-frontend-tooling/**/*.{js,jsx,ts,tsx}",
+        "node_modules/@saas-nextjs nestjs/shared-frontend-tooling/**/*.{js,jsx,ts,tsx}",
     ],
 
     variants: {

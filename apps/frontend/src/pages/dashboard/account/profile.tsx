@@ -20,7 +20,7 @@ export default function Home({
             menuSections={menuSections}
             menuHeaderTitle={"Dashboard"}
             menuHeaderHref={"/dashboard"}
-            headerTitle={"Miller Dev Tools"}
+            headerTitle={"Saas Nextjs Nestjs"}
         >
             <ProfileDetails currentUser={currentUser} />
         </LeftMenuWrappedContent>

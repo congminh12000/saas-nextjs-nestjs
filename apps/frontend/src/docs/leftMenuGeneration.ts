@@ -54,7 +54,7 @@ export function mapTitles(productKey: string): {
         default:
             return {
                 menuHeaderTitle: "Docs",
-                headerTitle: "Miller Dev Tools",
+                headerTitle: "Saas Nextjs Nestjs",
             };
     }
 }

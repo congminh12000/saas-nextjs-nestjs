@@ -18,7 +18,7 @@ I also use it a place to keep examples for my blog posts and learning on https:/
 
 You can navigate the code on the miller start website like in an IDE. This README content will change if you navigate to any sub directory which contains a README that is relevant to that directory.
 
-The main monorepo is this repo - `use-miller`. The other important repo is `nest-backend-libs` which contains the shared libraries for the backend.
+The main monorepo is this repo - `saas-nextjs nestjs`. The other important repo is `nest-backend-libs` which contains the shared libraries for the backend.
 
 Both of these repos are available in the miller docs and on the GitHub repos.
 
@@ -34,9 +34,9 @@ On the Dokku host:
     - `sudo test -f /home/dokku/.github_token && sudo head -c 4 /home/dokku/.github_token && echo`
     - If missing: `sudo sh -c 'umask 077; printf "%s" "ghp_..." > /home/dokku/.github_token'`
 - Configure the app build to pass it as a BuildKit secret:
-    - `dokku docker-options:add use-miller build "--secret id=github_token,src=/home/dokku/.github_token"`
+    - `dokku docker-options:add saas-nextjs nestjs build "--secret id=github_token,src=/home/dokku/.github_token"`
 - Verify it’s set:
-    - `dokku docker-options:report use-miller`
+    - `dokku docker-options:report saas-nextjs nestjs`
 
 Then redeploy:
 

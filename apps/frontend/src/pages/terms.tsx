@@ -8,7 +8,7 @@ export default function Home() {
             seoDescription="Review the license terms for each Miller product and find links to the specific terms for Miller Start, Dev Shell, and Local Dev Tools."
             seoTitle={`Dev tools to save you time`}
             canonicalUrl="https://usemiller.dev/terms"
-            headerTitle="Miller Dev Tools"
+            headerTitle="Saas Nextjs Nestjs"
             themeColor="violet"
         >
             <Container>

@@ -12,7 +12,7 @@ I recommend NOT forking the project on Github. Instead, create a new repo and co
 
 ```
 # in your new repo
-git remote add -f miller_repo https://github.com/darraghoriordan/use-miller.git
+git remote add -f miller_repo https://github.com/darraghoriordan/saas-nextjs nestjs.git
 git remote update
 git diff master remotes/miller_repo/master
 git remote rm miller_repo

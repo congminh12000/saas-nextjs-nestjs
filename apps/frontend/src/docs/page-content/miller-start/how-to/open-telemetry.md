@@ -22,7 +22,7 @@ You can view the metrics in Prometheus at http://localhost:9090/.
 
 Refer to your telemetry provider's documentation. If you haven't chosen a provider I recommend honeycomb.io - https://honeycomb.io.
 
-You do not have to configure instrumentation using a third party provider's libraries. Use Miller is already fully instrumented. The Open Telemetry exporters that are configured in Miller Start work with all the major Telemetry SaaS tools.
+You do not have to configure instrumentation using a third party provider's libraries. Saas Nextjs Nestjs is already fully instrumented. The Open Telemetry exporters that are configured in Miller Start work with all the major Telemetry SaaS tools.
 
 You need to find the Open Telemetry url for your provider.
 

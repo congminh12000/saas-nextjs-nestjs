@@ -41,8 +41,8 @@ RUN --mount=type=secret,id=github_token \
     rm -rf /app/code-repos/mac-setup-script/.git
 
 RUN --mount=type=secret,id=github_token \
-    git clone https://x-access-token:$(cat /run/secrets/github_token)@github.com/darraghoriordan/use-miller.git --depth 1 && \
-    rm -rf /app/code-repos/use-miller/.git
+    git clone https://x-access-token:$(cat /run/secrets/github_token)@github.com/darraghoriordan/saas-nextjs nestjs.git --depth 1 && \
+    rm -rf /app/code-repos/saas-nextjs nestjs/.git
 
 # Lean production image - only take pruned assets
 FROM node:24.12.0-alpine AS runner

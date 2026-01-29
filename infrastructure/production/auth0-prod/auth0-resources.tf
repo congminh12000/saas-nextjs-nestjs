@@ -1,5 +1,5 @@
 resource "auth0_tenant" "prod_tenant" {
-  friendly_name     = "Use Miller Dev Tools"
+  friendly_name     = "Use Saas Nextjs Nestjs"
   default_directory = "Username-Password-Authentication"
 
   oidc_logout {
@@ -8,7 +8,7 @@ resource "auth0_tenant" "prod_tenant" {
 }
 
 resource "auth0_client" "frontend_spa_app" {
-  name        = "Use Miller Web App"
+  name        = "SaasNextjsNestjs Web App"
   description = "The frontend client application"
   app_type    = "regular_web"
   callbacks = ["https://usemiller.dev",

@@ -1,8 +1,8 @@
 {
-    "name": "@use-miller/app-backend-api",
+    "name": "@saasnextjsnestjs/app-backend-api",
     "version": "1.0.1",
     "description": "",
-    "author": "Use Miller",
+    "author": "Saas Nextjs Nestjs",
     "private": true,
     "type": "module",
     "license": "UNLICENSED",

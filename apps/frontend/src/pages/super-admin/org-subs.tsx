@@ -21,7 +21,7 @@ export default function Home({
             productKey="miller-start"
             menuHeaderTitle="Super Admin"
             menuHeaderHref="/super-admin"
-            headerTitle="Miller Dev Tools"
+            headerTitle="Saas Nextjs Nestjs"
             menuSections={menuSections}
         >
             <OrgSubsSuperAdmin allSubs={allSubs} title={"Org Subscriptions"} />

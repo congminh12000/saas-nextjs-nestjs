@@ -124,7 +124,7 @@ export function Hero({ user }: { user: UserDto }) {
 
                     <AnimatedHeadline delay={0.6}>
                         <div className="mt-8">
-                            <GithubLink githubUrl="https://github.com/darraghoriordan/use-miller" />
+                            <GithubLink githubUrl="https://github.com/darraghoriordan/saas-nextjs nestjs" />
                         </div>
                     </AnimatedHeadline>
 
