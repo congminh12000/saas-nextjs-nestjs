@@ -16,7 +16,6 @@ import { SingleSkillCard } from "./SingleSkillCard";
 import { SingleFeatureCard } from "./SingleFeatureCard";
 import { SingleSupplementCard } from "./SingleSupplementCard";
 // import { OpenSourceSection } from "./OpenSourceSection";
-import { ThemeColor } from "../../styles/themeColors";
 import type { components } from "../../shared/types/api-specs";
 // import {
 //     TerminalWindow,
@@ -44,24 +43,26 @@ import {
 import zaloQrImage from "../../images/zalo-qr.jpg";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+// import { ThemeColor } from "../../styles/themeColors";
+
 
 
 type UserDto = components["schemas"]["UserDto"];
 
-export interface HeroProduct {
-    colorVariant: ThemeColor;
-    title: string;
-    blurb: string;
-    benefits: string[];
-    learnMoreLinkUrl: string;
-    learnMoreLinkText: string;
-    altLinkText: string;
-    altLink: string;
-    altAltLinkText?: string;
-    altAltLink?: string;
-    githubUrl?: string;
-    stars?: number;
-}
+// export interface HeroProduct {
+//     colorVariant: ThemeColor;
+//     title: string;
+//     blurb: string;
+//     benefits: string[];
+//     learnMoreLinkUrl: string;
+//     learnMoreLinkText: string;
+//     altLinkText: string;
+//     altLink: string;
+//     altAltLinkText?: string;
+//     altAltLink?: string;
+//     githubUrl?: string;
+//     stars?: number;
+// }
 
 const skillCards: SingleSkillCardProps[] = [
     {
@@ -98,7 +99,7 @@ const skillCards: SingleSkillCardProps[] = [
     },
 ];
 
-export function Hero({ user }: { user: UserDto }) {
+export function Hero({ user: _user }: { user: UserDto }) {
     const [isQrModalOpen, setIsQrModalOpen] = useState(false);
 
     useEffect(() => {
@@ -156,59 +157,59 @@ export function Hero({ user }: { user: UserDto }) {
             thumb: proshipThumb,
         },
     ];
-    const products: HeroProduct[] = [
-        {
-            title: "Dev Shell",
-            blurb: "Reproducible, auditable dev environments",
-            learnMoreLinkUrl: "/dev-shell",
-            learnMoreLinkText: "Explore Dev Shell",
-            altLinkText: "Preview source",
-            altLink:
-                "/docs/dev-shell/reference/dev-shell-scripts/L1JFQURNRS5tZA==",
-            benefits: [
-                "Set up a new machine in minutes with tested scripts",
-                "50+ pre-configured modern developer tools",
-                "Consistent shell experience on Mac and Windows WSL",
-                "Full source code access - customize to your needs",
-            ],
-            colorVariant: "devshell",
-        },
-        {
-            title: "Local Dev Tools",
-            blurb: "Keep your data local. Zero cloud dependencies.",
-            learnMoreLinkUrl: "/local-dev-tools",
-            learnMoreLinkText: "Try free",
-            altLinkText: "Preview source",
-            altLink:
-                "/docs/local-dev-tools/reference/ssh-tool-new-electron/L3NyYy9hcHAvaW5kZXgudHN4",
-            altAltLinkText: "Download now",
-            altAltLink: "/local-dev-tools#download",
-            benefits: [
-                "Offline utilities for Git, SSH, and development",
-                "Your business data never leaves your machine",
-                "Universal app for Mac and Windows",
-                "Perpetual license - not a SaaS subscription",
-            ],
-            colorVariant: "localtools",
-        },
-        {
-            title: "Miller Start",
-            blurb: "Security-first NestJS template with hardened defaults",
-            githubUrl: "https://github.com/darraghoriordan/saas-nextjs nestjs",
-            learnMoreLinkUrl: "/miller-start",
-            learnMoreLinkText: "Explore template",
-            altLinkText: "Preview source",
-            altLink: "/docs/miller-start/reference/miller-web/L1JFQURNRS5tZA==",
-            stars: 50,
-            benefits: [
-                "Full-stack NestJS + Next.js + PostgreSQL starter",
-                "Auth0, Stripe, and OpenTelemetry pre-configured",
-                "Security best practices built-in from day one",
-                "Complete with Terraform infrastructure scripts",
-            ],
-            colorVariant: "millerstart",
-        },
-    ];
+    // const products: HeroProduct[] = [
+    //     {
+    //         title: "Dev Shell",
+    //         blurb: "Reproducible, auditable dev environments",
+    //         learnMoreLinkUrl: "/dev-shell",
+    //         learnMoreLinkText: "Explore Dev Shell",
+    //         altLinkText: "Preview source",
+    //         altLink:
+    //             "/docs/dev-shell/reference/dev-shell-scripts/L1JFQURNRS5tZA==",
+    //         benefits: [
+    //             "Set up a new machine in minutes with tested scripts",
+    //             "50+ pre-configured modern developer tools",
+    //             "Consistent shell experience on Mac and Windows WSL",
+    //             "Full source code access - customize to your needs",
+    //         ],
+    //         colorVariant: "devshell",
+    //     },
+    //     {
+    //         title: "Local Dev Tools",
+    //         blurb: "Keep your data local. Zero cloud dependencies.",
+    //         learnMoreLinkUrl: "/local-dev-tools",
+    //         learnMoreLinkText: "Try free",
+    //         altLinkText: "Preview source",
+    //         altLink:
+    //             "/docs/local-dev-tools/reference/ssh-tool-new-electron/L3NyYy9hcHAvaW5kZXgudHN4",
+    //         altAltLinkText: "Download now",
+    //         altAltLink: "/local-dev-tools#download",
+    //         benefits: [
+    //             "Offline utilities for Git, SSH, and development",
+    //             "Your business data never leaves your machine",
+    //             "Universal app for Mac and Windows",
+    //             "Perpetual license - not a SaaS subscription",
+    //         ],
+    //         colorVariant: "localtools",
+    //     },
+    //     {
+    //         title: "Miller Start",
+    //         blurb: "Security-first NestJS template with hardened defaults",
+    //         githubUrl: "https://github.com/darraghoriordan/saas-nextjs nestjs",
+    //         learnMoreLinkUrl: "/miller-start",
+    //         learnMoreLinkText: "Explore template",
+    //         altLinkText: "Preview source",
+    //         altLink: "/docs/miller-start/reference/miller-web/L1JFQURNRS5tZA==",
+    //         stars: 50,
+    //         benefits: [
+    //             "Full-stack NestJS + Next.js + PostgreSQL starter",
+    //             "Auth0, Stripe, and OpenTelemetry pre-configured",
+    //             "Security best practices built-in from day one",
+    //             "Complete with Terraform infrastructure scripts",
+    //         ],
+    //         colorVariant: "millerstart",
+    //     },
+    // ];
 
     return (
         <div className="relative overflow-hidden">
