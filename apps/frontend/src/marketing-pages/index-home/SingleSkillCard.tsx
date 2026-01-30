@@ -40,12 +40,12 @@ export function SingleSkillCard({
         brand: "border-violet-400/20 text-security-text",
     };
 
-    const scoreStyles: Record<SkillVariant, string> = {
-        accent: "bg-accent",
-        warning: "bg-amber-400",
-        danger: "bg-rose-400",
-        brand: "bg-violet-400",
-    };
+    // const scoreStyles: Record<SkillVariant, string> = {
+    //     accent: "bg-accent",
+    //     warning: "bg-amber-400",
+    //     danger: "bg-rose-400",
+    //     brand: "bg-violet-400",
+    // };
 
     const scoreStrokeStyles: Record<SkillVariant, string> = {
         accent: "stroke-accent",
