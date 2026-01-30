@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Container } from "./Container";
-import { GitHubIcon } from "./GithubIcon";
+// import { GitHubIcon } from "./GithubIcon";
 
 export function Footer({
     productKey,
