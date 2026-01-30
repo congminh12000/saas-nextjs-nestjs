@@ -48,7 +48,7 @@ export function SingleFeatureCard({
             >
                 <div className="space-y-4">
                     <div className="mb-9">
-                        <div className="mb-3 flex items-center">
+                        <div className="mb-3 flex justify-start">
                             <div className="relative h-10 w-auto overflow-hidden">
                                 <Image
                                     src={logo}
