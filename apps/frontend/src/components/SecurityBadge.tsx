@@ -26,7 +26,15 @@ interface SecurityBadgeProps {
     icon?: BadgeIcon;
     children: React.ReactNode;
     className?: string;
-    variant?: "default" | "accent" | "muted";
+    variant?:
+        | "default"
+        | "accent"
+        | "muted"
+        | "success"
+        | "warning"
+        | "danger"
+        | "info"
+        | "brand";
 }
 
 const iconMap = {
@@ -54,6 +62,15 @@ export function SecurityBadge({
             "border-security-border text-security-text hover:border-accent/50 hover:text-accent",
         accent: "border-accent/30 text-accent hover:border-accent hover:bg-accent/10",
         muted: "border-security-border/50 text-security-muted",
+        success:
+            "border-emerald-400/40 text-emerald-300 hover:border-emerald-400 hover:bg-emerald-400/10",
+        warning:
+            "border-amber-400/40 text-amber-300 hover:border-amber-400 hover:bg-amber-400/10",
+        danger:
+            "border-rose-400/40 text-rose-300 hover:border-rose-400 hover:bg-rose-400/10",
+        info: "border-sky-400/40 text-sky-300 hover:border-sky-400 hover:bg-sky-400/10",
+        brand:
+            "border-violet-400/40 text-violet-300 hover:border-violet-400 hover:bg-violet-400/10",
     };
 
     return (
@@ -77,16 +94,54 @@ interface TrustBadgesProps {
 
 export function TrustBadges({ className }: TrustBadgesProps) {
     return (
-        <div className={clsx("flex flex-wrap items-center gap-3", className)}>
-            <SecurityBadge icon="lock" variant="accent">
-                Local Processing
-            </SecurityBadge>
-            <SecurityBadge icon="code" variant="accent">
-                Open Source
-            </SecurityBadge>
-            <SecurityBadge icon="shield" variant="accent">
-                Zero Data Collection
-            </SecurityBadge>
+        <div className={clsx("flex flex-col gap-3", className)}>
+            <div className="flex flex-wrap items-center gap-3">
+                <SecurityBadge variant="accent">
+                    Next.js (React)
+                </SecurityBadge>
+                <SecurityBadge variant="accent">
+                    Vue.js
+                </SecurityBadge>
+                <SecurityBadge variant="accent">
+                    TypeScript
+                </SecurityBadge>
+                <SecurityBadge variant="warning">
+                    NestJS (Node.js)
+                </SecurityBadge>
+                <SecurityBadge variant="warning">RESTful APIs</SecurityBadge>
+                <SecurityBadge variant="warning">PHP</SecurityBadge>
+                <SecurityBadge variant="danger">
+                    PostgreSQL
+                </SecurityBadge>
+                <SecurityBadge variant="danger">MongoDB</SecurityBadge>
+                <SecurityBadge variant="danger">Redis</SecurityBadge>
+                <SecurityBadge variant="brand">
+                    Git
+                </SecurityBadge>
+                <SecurityBadge variant="brand">Docker</SecurityBadge>
+                <SecurityBadge variant="brand">Agile / Scrum</SecurityBadge>
+            </div>
+            {/* <div className="flex flex-wrap items-center gap-3">
+                <SecurityBadge variant="warning">
+                    NestJS (Node.js)
+                </SecurityBadge>
+                <SecurityBadge variant="warning">PHP</SecurityBadge>
+                <SecurityBadge variant="warning">RESTful APIs</SecurityBadge>
+            </div>
+            <div className="flex flex-wrap items-center gap-3">
+                <SecurityBadge variant="danger">
+                    PostgreSQL
+                </SecurityBadge>
+                <SecurityBadge variant="danger">MongoDB</SecurityBadge>
+                <SecurityBadge variant="danger">Redis</SecurityBadge>
+            </div>
+            <div className="flex flex-wrap items-center gap-3">
+                <SecurityBadge variant="brand">
+                    Git
+                </SecurityBadge>
+                <SecurityBadge variant="brand">Docker</SecurityBadge>
+                <SecurityBadge variant="brand">Agile / Scrum</SecurityBadge>
+            </div> */}
         </div>
     );
 }

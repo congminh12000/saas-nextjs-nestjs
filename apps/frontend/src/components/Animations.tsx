@@ -226,19 +226,32 @@ export function StaggerItem({ children, className }: StaggerItemProps) {
 interface GlowCardProps {
     children: React.ReactNode;
     className?: string;
+    hoverBorderColor?: string;
+    hoverShadowColor?: string;
+    isHoverEnabled?: boolean;
 }
 
-export function GlowCard({ children, className }: GlowCardProps) {
+export function GlowCard({
+    children,
+    className,
+    hoverBorderColor = "rgba(0, 255, 136, 0.5)",
+    hoverShadowColor = "rgba(0, 255, 136, 0.15)",
+    isHoverEnabled = true,
+}: GlowCardProps) {
     return (
         <motion.div
             className={clsx(
                 "relative bg-security-dark border border-security-border rounded-lg transition-colors",
                 className,
             )}
-            whileHover={{
-                borderColor: "rgba(0, 255, 136, 0.5)",
-                boxShadow: "0 0 30px rgba(0, 255, 136, 0.15)",
-            }}
+            whileHover={
+                isHoverEnabled
+                    ? {
+                          borderColor: hoverBorderColor,
+                          boxShadow: `0 0 30px ${hoverShadowColor}`,
+                      }
+                    : undefined
+            }
             transition={{ duration: 0.2 }}
         >
             {children}
