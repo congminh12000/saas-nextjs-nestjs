@@ -2,12 +2,27 @@
 
 import Link from "next/link";
 import clsx from "clsx";
-import { HeroProduct } from "./Hero";
 import { GitHubIcon } from "../../components/GithubIcon";
 import { colorVariants } from "../../styles/themeColors";
 import { GitHubStarsBadge } from "../../components/SecurityBadge";
 import { CheckIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
 import { GlowCard } from "../../components/Animations";
+import type { ThemeColor } from "../../styles/themeColors";
+
+export interface HeroProduct {
+    colorVariant: ThemeColor;
+    title: string;
+    blurb: string;
+    benefits: string[];
+    learnMoreLinkUrl: string;
+    learnMoreLinkText: string;
+    altLinkText: string;
+    altLink: string;
+    altAltLinkText?: string;
+    altAltLink?: string;
+    githubUrl?: string;
+    stars?: number;
+}
 
 // Legacy export for backward compatibility
 export const GithubLink = ({ githubUrl }: { githubUrl: string }) => {
