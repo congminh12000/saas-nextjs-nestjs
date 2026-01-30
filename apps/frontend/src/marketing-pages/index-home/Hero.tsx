@@ -5,16 +5,17 @@ import {
     TypewriterText,
     AnimatedHeadline,
     FadeInOnScroll,
-    StaggerContainer,
-    StaggerItem,
+    // StaggerContainer,
+    // StaggerItem,
     // ScanLine,
 } from "../../components/Animations";
 import { TrustBadges } from "../../components/SecurityBadge";
-import { SingleProductCard } from "./SingleProductCard";
+// import { SingleProductCard } from "./SingleProductCard";
+import type { SingleSkillCardProps } from "./SingleSkillCard";
 import { SingleSkillCard } from "./SingleSkillCard";
 import { SingleFeatureCard } from "./SingleFeatureCard";
 import { SingleSupplementCard } from "./SingleSupplementCard";
-import { OpenSourceSection } from "./OpenSourceSection";
+// import { OpenSourceSection } from "./OpenSourceSection";
 import { ThemeColor } from "../../styles/themeColors";
 import type { components } from "../../shared/types/api-specs";
 // import {
@@ -61,6 +62,41 @@ export interface HeroProduct {
     githubUrl?: string;
     stars?: number;
 }
+
+const skillCards: SingleSkillCardProps[] = [
+    {
+        title: "Frontend",
+        icon: PaintBrushIcon,
+        topItems: ["Next.js (React)", "Vue.js", "TypeScript"],
+        tags: ["Tailwind (CSS)", "Headless UI", "Framer Motion"],
+        variant: "accent",
+        score: 9,
+    },
+    {
+        title: "Backend",
+        icon: WrenchScrewdriverIcon,
+        topItems: ["NestJS (Node.js)", "RESTful APIs", "PHP"],
+        tags: ["Auth0", "JWT", "RBAC"],
+        variant: "warning",
+        score: 8,
+    },
+    {
+        title: "Data",
+        icon: CircleStackIcon,
+        topItems: ["PostgreSQL", "MongoDB", "Redis"],
+        tags: ["TypeORM", "Cache / Session / Queue)"],
+        variant: "danger",
+        score: 7,
+    },
+    {
+        title: "DevOps & Quality",
+        icon: BeakerIcon,
+        topItems: ["Git", "Docker", "Agile / Scrum"],
+        tags: ["CI/CD", "Unit Test/UAT", "Design Patterns"],
+        variant: "brand",
+        score: 5,
+    },
+];
 
 export function Hero({ user }: { user: UserDto }) {
     const [isQrModalOpen, setIsQrModalOpen] = useState(false);
@@ -183,7 +219,8 @@ export function Hero({ user }: { user: UserDto }) {
 
             <Container className="relative pt-16 md:pt-24 pb-16">
                 {/* Hero Section */}
-                <section className="grid grid-cols-1 gap-10 md:grid-cols-5 md:gap-12 items-center">
+                <FadeInOnScroll>
+                    <section className="grid grid-cols-1 gap-10 md:grid-cols-5 md:gap-12 items-center">
                     <div className="md:col-span-3">
                         <AnimatedHeadline delay={0.1}>
                             <div>
@@ -260,7 +297,8 @@ export function Hero({ user }: { user: UserDto }) {
                             />
                         </div>
                     </div>
-                </section>
+                    </section>
+                </FadeInOnScroll>
 
                 <AnimatePresence>
                     {isQrModalOpen && (
@@ -317,7 +355,9 @@ export function Hero({ user }: { user: UserDto }) {
                     )}
                 </AnimatePresence>
 
+                
                 <section className="mt-24 md:mt-32">
+                  <FadeInOnScroll>  
                     <div className="flex items-center gap-4 mb-3">
                         <h2 className="font-display text-2xl md:text-3xl text-security-light">
                             Kỹ Năng Chuyên Môn
@@ -334,65 +374,25 @@ export function Hero({ user }: { user: UserDto }) {
                             Full-stack (E2E): Requirements → Plan → Design → Build → Integrations → Test → CI/CD → Deploy → Monitor (and Repeat)
                         </span> */}
                     </div>
-
+                    </FadeInOnScroll>
+                    <FadeInOnScroll>
                     <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-2">
-                        <SingleSkillCard
-                            title="Frontend"
-                            icon={PaintBrushIcon}
-                            topItems={[
-                                "Next.js (React)",
-                                "Vue.js",
-                                "TypeScript",
-                            ]}
-                            tags={["Tailwind (CSS)", "Headless UI", "Framer Motion"]}
-                            variant="accent"
-                            score={9}
-                        />
-                        <SingleSkillCard
-                            title="Backend"
-                            icon={WrenchScrewdriverIcon}
-                            topItems={[
-                                "NestJS (Node.js)",
-                                "RESTful APIs",
-                                "PHP",
-                            ]}
-                            tags={["Auth0", "JWT", "RBAC"]}
-                            variant="warning"
-                            score={8}
-                        />
-                        <SingleSkillCard
-                            title="Data"
-                            icon={CircleStackIcon}
-                            topItems={[
-                                "PostgreSQL",
-                                "MongoDB",
-                                "Redis",
-                            ]}
-                            tags={[
-                                "TypeORM",
-                                "Cache / Session / Queue)",
-                            ]}
-                            variant="danger"
-                            score={7}
-                        />
-                        <SingleSkillCard
-                            title="DevOps & Quality"
-                            icon={BeakerIcon}
-                            topItems={["Git", "Docker", "Agile / Scrum"]}
-                            tags={[
-                                "CI/CD",
-                                "Unit Test/UAT",
-                                "Design Patterns",
-                            ]}
-                            variant="brand"
-                            score={5}
-                        />
+                        {skillCards.map((skill, index) => (
+                            <AnimatedHeadline
+                                key={skill.title}
+                                delay={0.4 * (index + 1)}
+                            >
+                                <SingleSkillCard {...skill} />
+                            </AnimatedHeadline>
+                        ))}
                     </div>
-                </section>
+                    </FadeInOnScroll>
+                    </section>
 
                 
 
-                <section className="mt-24 md:mt-32">
+                <FadeInOnScroll>
+                    <section className="mt-24 md:mt-32">
                     <div className="flex items-center gap-4 mb-6">
                         <h2 className="font-display text-2xl md:text-3xl text-security-light">
                             Kinh Nghiệm Thực Chiến
@@ -423,9 +423,11 @@ export function Hero({ user }: { user: UserDto }) {
                             />
                         ))}
                     </div>
-                </section>
+                    </section>
+                </FadeInOnScroll>
 
-                <section className="mt-24 md:mt-32">
+                <FadeInOnScroll>
+                    <section className="mt-24 md:mt-32">
                     {/* Option 1: Text on top + full-bleed image (active) */}
                     <div className="flex items-center gap-4 mb-6">
                         <h2 className="font-display text-2xl md:text-3xl text-security-light">
@@ -518,9 +520,11 @@ export function Hero({ user }: { user: UserDto }) {
                         </div>
                     </div>
                     */}
-                </section>
+                    </section>
+                </FadeInOnScroll>
 
-                <section className="mt-24 md:mt-32">
+                <FadeInOnScroll>
+                    <section className="mt-24 md:mt-32">
                     <div className="flex items-center gap-4 mb-3">
                         <h2 className="font-display text-2xl md:text-3xl text-security-light">
                             Bổ Sung
@@ -547,7 +551,8 @@ export function Hero({ user }: { user: UserDto }) {
                             description="Chỉ biết Đọc và Viết 🙁."
                         />
                     </div>
-                </section>
+                    </section>
+                </FadeInOnScroll>
                 {/* Terminal Demo */}
                 {/* <FadeInOnScroll
                     delay={0.2}
