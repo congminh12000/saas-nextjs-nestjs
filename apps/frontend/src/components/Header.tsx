@@ -3,13 +3,14 @@ import Link from "next/link";
 import { Popover, Transition } from "@headlessui/react";
 import clsx from "clsx";
 import { Container } from "./Container";
-import { NavLink } from "./NavLink";
+// import { NavLink } from "./NavLink";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { User } from "@auth0/nextjs-auth0/types";
-import { colorVariants, ThemeColor } from "../styles/themeColors";
-import { getSignUpUrl } from "./signupUrl";
+// import { colorVariants, ThemeColor } from "../styles/themeColors";
+import { ThemeColor } from "../styles/themeColors";
+// import { getSignUpUrl } from "./signupUrl";
 import {
-    ChevronDownIcon,
+    // ChevronDownIcon,
     CommandLineIcon,
     RocketLaunchIcon,
     WrenchIcon,
@@ -78,8 +79,8 @@ const products = [
     },
     {
         icon: RocketLaunchIcon,
-        key: "miller-start",
-        name: "Miller Start",
+        key: "minh-phan-start",
+        name: "Minh Phan Start",
         description: "Security-first NestJS template",
         color: "millerstart" as ThemeColor,
     },
@@ -215,10 +216,10 @@ export function Header({
     themeColor?: ThemeColor;
 }) {
     const { user, isLoading } = useUser();
-    const signUpUri = getSignUpUrl({
-        productKey,
-    });
-    const docsPath = `/docs/${productKey}/get-started/quick-start`;
+    // const signUpUri = getSignUpUrl({
+    //     productKey,
+    // });
+    // const docsPath = `/docs/${productKey}/get-started/quick-start`;
 
     return (
         <header className="relative z-50 border-b border-security-border/50">
@@ -239,9 +240,9 @@ export function Header({
                     </div>
 
                     {/* Desktop Navigation */}
-                    <div className="hidden md:flex items-center gap-1">
+                    {/* <div className="hidden md:flex items-center gap-1">
                         {/* Products Dropdown */}
-                        <Popover className="relative">
+                        {/* <Popover className="relative">
                             <Popover.Button className="inline-flex items-center gap-1 px-3 py-2 font-mono text-sm text-security-text hover:text-accent rounded-md transition-colors focus:outline-none">
                                 <span>Products</span>
                                 <ChevronDownIcon
@@ -310,10 +311,10 @@ export function Header({
                                     </div>
                                 </Popover.Panel>
                             </Transition>
-                        </Popover>
+                        </Popover> */}
 
                         {/* Product-specific links */}
-                        {productKey && (
+                        {/* {productKey && (
                             <>
                                 <NavLink
                                     href={`/${productKey}/#features`}
@@ -334,15 +335,15 @@ export function Header({
                                     Docs
                                 </NavLink>
                             </>
-                        )}
+                        )} */}
 
-                        <NavLink
+                        {/* <NavLink
                             href="/about"
                             className="px-3 py-2 font-mono text-sm text-security-text hover:text-accent rounded-md transition-colors"
                         >
                             About
-                        </NavLink>
-                    </div>
+                        </NavLink> */}
+                    {/* </div> */}
 
                     {/* Right side - Auth */}
                     <div className="flex items-center gap-3">
@@ -355,17 +356,21 @@ export function Header({
                                     Dashboard
                                 </Link>
                             ) : (
-                                <a
-                                    href="/auth/login"
-                                    className="inline-flex items-center px-4 py-2 font-mono text-sm bg-accent text-security-black rounded-md hover:bg-accent-dim transition-all"
-                                >
-                                    Sign In
-                                </a>
+                                // <a
+                                //     href="/auth/login"
+                                //     className="inline-flex items-center px-4 py-2 font-mono text-sm bg-accent text-security-black rounded-md hover:bg-accent-dim transition-all"
+                                // >
+                                //     Sign In
+                                // </a>
+                                <span className="font-mono text-xs uppercase tracking-wider text-security-muted">
+                                    Làm hết khả năng. Không để hối tiếc. Đi tới cùng với mọi điều mình làm.
+                                </span>
                             )}
                         </div>
+                        
 
                         {/* Mobile menu button */}
-                        <div className="md:hidden">
+                        {/* <div className="md:hidden">
                             {!isLoading && (
                                 <MobileNavigation
                                     signUpUri={signUpUri}
@@ -374,8 +379,8 @@ export function Header({
                                     docsPath={docsPath}
                                 />
                             )}
-                        </div>
-                    </div>
+                        </div> */}
+                    </div>    
                 </nav>
             </Container>
         </header>

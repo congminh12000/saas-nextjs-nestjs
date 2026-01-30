@@ -7,8 +7,8 @@ export default function Home() {
     return (
         <Layout
             seoDescription="Read how Miller collects, uses, and safeguards personal data, and how you can contact us with privacy questions."
-            seoTitle={`Dev tools to save you time`}
-            canonicalUrl="https://usemiller.dev/privacy"
+            seoTitle={`Phan Công Minh (Full-stack Developer)`}
+            // canonicalUrl="https://usemiller.dev/privacy"
             headerTitle="Saas Nextjs Nestjs"
             themeColor="violet"
         >

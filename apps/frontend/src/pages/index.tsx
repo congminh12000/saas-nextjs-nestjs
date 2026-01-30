@@ -10,10 +10,10 @@ export const getServerSideProps = getMarketingServerSideProps;
 export default function Home({ user }: { user: UserDto }) {
     return (
         <Layout
-            seoDescription="Miller dev tools save you time so you can focus on building your product and helping your customers."
-            seoTitle={`Dev tools to save you time`}
-            canonicalUrl="https://usemiller.dev/"
-            headerTitle="Saas Nextjs Nestjs"
+            seoDescription="Minh Phan dev tools save you time so you can focus on building your product and helping your customers."
+            seoTitle={`Phan Công Minh (Full-stack Developer)`}
+            //canonicalUrl="https://usemiller.dev/"
+            headerTitle="Minh Phan"
             themeColor="violet"
         >
             <Hero user={user} />

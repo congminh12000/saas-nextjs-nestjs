@@ -7,8 +7,8 @@ export default function Home() {
     return (
         <Layout
             seoDescription="Learn who builds Miller and why the tools focus on speed, simplicity, and helping you ship reliable software faster."
-            seoTitle={`Dev tools to save you time`}
-            canonicalUrl="https://usemiller.dev/about"
+            seoTitle={`Phan Công Minh (Full-stack Developer)`}
+            //canonicalUrl="https://usemiller.dev/about"
             headerTitle="Saas Nextjs Nestjs"
             themeColor="violet"
         >

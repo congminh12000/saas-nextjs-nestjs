@@ -26,7 +26,7 @@ export function Footer({
                                 <span className="text-accent">{">"}</span>{" "}
                                 {headerTitle || "MILLER_"}
                             </Link>
-                            <p className="text-sm text-security-muted">
+                            {/* <p className="text-sm text-security-muted">
                                 Built by{" "}
                                 <Link
                                     href="/about"
@@ -34,7 +34,7 @@ export function Footer({
                                 >
                                     Darragh O'Riordan
                                 </Link>
-                            </p>
+                            </p> */}
                         </div>
 
                         {/* Links */}
@@ -64,7 +64,7 @@ export function Footer({
                                     </span>
                                 </>
                             )}
-                            <a
+                            {/* <a
                                 href="https://github.com/darraghoriordan"
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -72,12 +72,16 @@ export function Footer({
                             >
                                 <GitHubIcon className="h-4 w-4 fill-current" />
                                 <span className="font-mono">GitHub</span>
-                            </a>
+                            </a> */}
+                            <p className="font-mono text-xs text-security-muted">
+                                &copy; {currentYear} Minh Phan. All rights
+                                reserved.
+                            </p>
                         </div>
                     </div>
 
                     {/* Bottom bar */}
-                    <div className="mt-8 pt-6 border-t border-security-border/50 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    {/* <div className="mt-8 pt-6 border-t border-security-border/50 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                         <p className="font-mono text-xs text-security-muted">
                             &copy; {currentYear} Saas Nextjs Nestjs. All rights
                             reserved.
@@ -102,7 +106,7 @@ export function Footer({
                                 About
                             </Link>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </Container>
         </footer>
