@@ -10,6 +10,7 @@ import {
     // ScanLine,
 } from "../../components/Animations";
 import { TrustBadges } from "../../components/SecurityBadge";
+import { LinkedInIcon } from "../../components/LinkedInIcon";
 // import { SingleProductCard } from "./SingleProductCard";
 import type { SingleSkillCardProps } from "./SingleSkillCard";
 import { SingleSkillCard } from "./SingleSkillCard";
@@ -99,6 +100,78 @@ const skillCards: SingleSkillCardProps[] = [
     },
 ];
 
+const experienceFeatures = [
+    {
+        title: "Freightek: Phần Mềm Freight Forwarder | Nền Tảng Doanh Nghiệp Logistics",
+        titleSub: "Phần Mềm Freight Forwarder",
+        description:
+            "Xây dựng nền tảng Digital FMS cho doanh nghiệp Freight Forwarder.",
+        frameworks: [
+            "Tracking",
+            "Quản Lý Giá Cước",
+            "Báo Giá Tự Động",
+            "Quản Lý Lô Hàng",
+            "Kế Toán",
+            "CRM & Phân Tích Dữ Liệu",
+        ],
+        linkUrl: "https://www.freightekvietnam.com/",
+        linkText: "Xem dự án",
+        logo: freightekLogo,
+        thumb: freightekThumb,
+    },
+    {
+        title: "SSTech – Quality Software Development",
+        titleSub: "Phát triển phần mềm chất lượng cao",
+        description: "Chuyên cung cấp dịch vụ và xây dựng phầm mềm cho doanh nghiệp.",
+        frameworks: [
+            "Web Application",
+            "Mobile Application",
+            "Blockchain Application",
+            "eCommerce Solutions",
+        ],
+        linkUrl: "https://www.sstechvn.com/",
+        linkText: "Xem dự án",
+        logo: sstLogo,
+        logoClassName: "brightness-175",
+        thumb: sstechThumb,
+    },
+    {
+        title: "Proship Logistics: Giải pháp Vận chuyển Nhanh hơn, Tối ưu hơn cho Doanh nghiệp",
+        titleSub: "Phần mềm vận tải Logistics",
+        description: "Xây dựng nền tảng vận tải Logistic cho doanh nghiệp.",
+        frameworks: [
+            "vận tải đa phương thức",
+            "đại lý hải quan",
+            "trucking",
+            "vận tải hàng lạnh",
+            "cho thuê kho",
+            "vận tải quốc tế",
+        ],
+        linkUrl: "https://proship.vn/",
+        linkText: "Xem dự án",
+        logo: proshipLogo,
+        logoClassName: "brightness-125",
+        thumb: proshipThumb,
+    },
+];
+
+const supplementCards = [
+    {
+        title: "AI",
+        description:
+            "Có khả năng sử dụng AI nhằm đẩy nhanh tốc độ, chất lượng và kết quả công việc.",
+    },
+    {
+        title: "Tự học",
+        description:
+            "Có khả năng nghiên cứu và cập nhật kiến thức mới để giải quyết các vấn đề phát sinh.",
+    },
+    {
+        title: "Tiếng Anh",
+        description: "Chỉ biết Đọc và Viết 🙁.",
+    },
+];
+
 export function Hero({ user: _user }: { user: UserDto }) {
     const [isQrModalOpen, setIsQrModalOpen] = useState(false);
 
@@ -120,43 +193,6 @@ export function Hero({ user: _user }: { user: UserDto }) {
         };
     }, [isQrModalOpen]);
 
-    const experienceFeatures = [
-        {
-            title: "Freightek: Phần Mềm Freight Forwarder | Nền Tảng Doanh Nghiệp Logistics",
-            titleSub: "Phần Mềm Freight Forwarder",
-            description:
-                "Xây dựng nền tảng Digital FMS cho doanh nghiệp Freight Forwarder.",
-            frameworks: ["Tracking", "Quản Lý Giá Cước", "Báo Giá Tự Động", "Quản Lý Lô Hàng", "Kế Toán", "CRM & Phân Tích Dữ Liệu"],
-            linkUrl: "https://www.freightekvietnam.com/",
-            linkText: "Xem dự án",
-            logo: freightekLogo,
-            thumb: freightekThumb,
-        },
-        {
-            title: "SSTech – Quality Software Development",
-            titleSub: "Phát triển phần mềm chất lượng cao",
-            description:
-                "Chuyên cung cấp dịch vụ và xây dựng phầm mềm cho doanh nghiệp.",
-            frameworks: ["Web Application", "Mobile Application", "Blockchain Application", "eCommerce Solutions"],
-            linkUrl: "https://www.sstechvn.com/",
-            linkText: "Xem dự án",
-            logo: sstLogo,
-            logoClassName: "brightness-175",
-            thumb: sstechThumb,
-        },
-        {
-            title: "Proship Logistics: Giải pháp Vận chuyển Nhanh hơn, Tối ưu hơn cho Doanh nghiệp",
-            titleSub: "Phần mềm vận tải Logistics",
-            description:
-                "Xây dựng nền tảng vận tải Logistic cho doanh nghiệp.",
-            frameworks: ["vận tải đa phương thức", "đại lý hải quan", "trucking", "vận tải hàng lạnh", "cho thuê kho", "vận tải quốc tế"],
-            linkUrl: "https://proship.vn/",
-            linkText: "Xem dự án",
-            logo: proshipLogo,
-            logoClassName: "brightness-125",
-            thumb: proshipThumb,
-        },
-    ];
     // const products: HeroProduct[] = [
     //     {
     //         title: "Dev Shell",
@@ -220,8 +256,7 @@ export function Hero({ user: _user }: { user: UserDto }) {
 
             <Container className="relative pt-16 md:pt-24 pb-16">
                 {/* Hero Section */}
-                <FadeInOnScroll>
-                    <section className="grid grid-cols-1 gap-10 md:grid-cols-5 md:gap-12 items-center">
+                <section className="grid grid-cols-1 gap-10 md:grid-cols-5 md:gap-12 items-center">
                     <div className="md:col-span-3">
                         <AnimatedHeadline delay={0.1}>
                             <div>
@@ -248,9 +283,9 @@ export function Hero({ user: _user }: { user: UserDto }) {
 
                         <AnimatedHeadline delay={0.4}>
                             <p className="mt-6 text-lg md:text-xl text-security-text max-w-2xl leading-relaxed">
-                                Hơn 3 năm kinh nghiệm thực chiến phát triển phần mềm.
+                                Hơn 5 năm kinh nghiệm thực chiến phát triển ứng dụng web.
                                 <br />
-                                Có khả năng ứng dụng AI để nâng cao 50% hiệu suất công
+                                Có khả năng ứng dụng AI nhằm nâng cao 50% hiệu suất công
                                 việc.
                             </p>
                         </AnimatedHeadline>
@@ -274,7 +309,7 @@ export function Hero({ user: _user }: { user: UserDto }) {
                                     Nhắn tin Zalo
                                     <ChatBubbleLeftRightIcon className="ml-2 h-4 w-4" />
                                 </Link>
-                                <a
+                                {/* <a
                                     href="/files/Phan-Cong-Minh-Full-Stack-Developer-Web-Application-CV.pdf"
                                     download
                                     rel="nofollow"
@@ -282,6 +317,15 @@ export function Hero({ user: _user }: { user: UserDto }) {
                                 >
                                     Tải CV
                                     <ArrowDownTrayIcon className="h-4 w-4" />
+                                </a> */}
+                                <a
+                                    href="https://linkedin.com/in/minh-phan-2bb344166"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2 px-6 py-3 font-mono text-sm text-security-light border border-security-border rounded-md hover:border-accent/50 hover:text-accent transition-all"
+                                >
+                                    LinkedIn
+                                    <LinkedInIcon className="h-4 w-4" />
                                 </a>
                             </div>
                         </AnimatedHeadline>
@@ -298,8 +342,7 @@ export function Hero({ user: _user }: { user: UserDto }) {
                             />
                         </div>
                     </div>
-                    </section>
-                </FadeInOnScroll>
+                </section>
 
                 <AnimatePresence>
                     {isQrModalOpen && (
@@ -358,7 +401,7 @@ export function Hero({ user: _user }: { user: UserDto }) {
 
                 
                 <section className="mt-24 md:mt-32">
-                  <FadeInOnScroll>  
+                  <FadeInOnScroll>
                     <div className="flex items-center gap-4 mb-3">
                         <h2 className="font-display text-2xl md:text-3xl text-security-light">
                             Kỹ Năng Chuyên Môn
@@ -375,25 +418,22 @@ export function Hero({ user: _user }: { user: UserDto }) {
                             Full-stack (E2E): Requirements → Plan → Design → Build → Integrations → Test → CI/CD → Deploy → Monitor (and Repeat)
                         </span> */}
                     </div>
-                    </FadeInOnScroll>
-                    <FadeInOnScroll>
+                  </FadeInOnScroll>
                     <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-2">
                         {skillCards.map((skill, index) => (
-                            <AnimatedHeadline
+                            <FadeInOnScroll
                                 key={skill.title}
-                                delay={0.4 * (index + 1)}
+                                delay={0.08 * (index + 1)}
                             >
                                 <SingleSkillCard {...skill} />
-                            </AnimatedHeadline>
+                            </FadeInOnScroll>
                         ))}
                     </div>
-                    </FadeInOnScroll>
                     </section>
 
                 
 
-                <FadeInOnScroll>
-                    <section className="mt-24 md:mt-32">
+                <section className="mt-24 md:mt-32">
                     <div className="flex items-center gap-4 mb-6">
                         <h2 className="font-display text-2xl md:text-3xl text-security-light">
                             Kinh Nghiệm Thực Chiến
@@ -424,11 +464,9 @@ export function Hero({ user: _user }: { user: UserDto }) {
                             />
                         ))}
                     </div>
-                    </section>
-                </FadeInOnScroll>
+                </section>
 
-                <FadeInOnScroll>
-                    <section className="mt-24 md:mt-32">
+                <section className="mt-24 md:mt-32">
                     {/* Option 1: Text on top + full-bleed image (active) */}
                     <div className="flex items-center gap-4 mb-6">
                         <h2 className="font-display text-2xl md:text-3xl text-security-light">
@@ -521,11 +559,9 @@ export function Hero({ user: _user }: { user: UserDto }) {
                         </div>
                     </div>
                     */}
-                    </section>
-                </FadeInOnScroll>
+                </section>
 
-                <FadeInOnScroll>
-                    <section className="mt-24 md:mt-32">
+                <section className="mt-24 md:mt-32">
                     <div className="flex items-center gap-4 mb-3">
                         <h2 className="font-display text-2xl md:text-3xl text-security-light">
                             Bổ Sung
@@ -539,21 +575,16 @@ export function Hero({ user: _user }: { user: UserDto }) {
                     </div>
 
                     <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                        <SingleSupplementCard
-                            title="AI"
-                            description="Có khả năng sử dụng AI nhằm đẩy nhanh tốc độ, chất lượng và kết quả công việc."
-                        />
-                        <SingleSupplementCard
-                            title="Tự học"
-                            description="Có khả năng nghiên cứu và cập nhật kiến thức mới để giải quyết các vấn đề phát sinh."
-                        />
-                        <SingleSupplementCard
-                            title="Tiếng Anh"
-                            description="Chỉ biết Đọc và Viết 🙁."
-                        />
+                        {supplementCards.map((card, index) => (
+                            <FadeInOnScroll
+                                key={card.title}
+                                delay={0.06 * (index + 1)}
+                            >
+                                <SingleSupplementCard {...card} />
+                            </FadeInOnScroll>
+                        ))}
                     </div>
-                    </section>
-                </FadeInOnScroll>
+                </section>
                 {/* Terminal Demo */}
                 {/* <FadeInOnScroll
                     delay={0.2}

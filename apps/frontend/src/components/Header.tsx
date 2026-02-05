@@ -363,7 +363,7 @@ export function Header({
                                 //     Sign In
                                 // </a>
                                 <span className="font-mono text-xs uppercase tracking-wider text-security-muted">
-                                    Làm hết khả năng. Không để hối tiếc. Đi tới cùng với mọi điều mình làm.
+                                    Ưu tiên làm việc Remote & Hybrid.
                                 </span>
                             )}
                         </div>
