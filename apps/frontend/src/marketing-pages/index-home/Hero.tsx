@@ -33,7 +33,7 @@ import proshipLogo from "../../images/logo-proship-resize.png";
 import proshipThumb from "../../images/proship-thumb.jpg";
 import educationImage from "../../images/NTT-Edu.jpg";
 import {
-    ArrowDownTrayIcon,
+    // ArrowDownTrayIcon,
     ArrowPathIcon,
     ChatBubbleLeftRightIcon,
     CircleStackIcon,
