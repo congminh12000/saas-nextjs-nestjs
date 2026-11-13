@@ -130,15 +130,15 @@ export function AnimatedHeadline({
     className,
     delay = 0,
 }: AnimatedHeadlineProps) {
+    // Pure CSS animation: runs on first paint without waiting for JS hydration,
+    // so above-the-fold content is visible as soon as the HTML + CSS arrive.
     return (
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay, ease: "easeOut" }}
-            className={className}
+        <div
+            className={clsx("animate-headline", className)}
+            style={{ animationDelay: `${delay}s` }}
         >
             {children}
-        </motion.div>
+        </div>
     );
 }
 

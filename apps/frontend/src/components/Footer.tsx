@@ -73,7 +73,7 @@ export function Footer({
                                 <GitHubIcon className="h-4 w-4 fill-current" />
                                 <span className="font-mono">GitHub</span>
                             </a> */}
-                            <p className="font-mono text-xs text-security-muted">
+                            <p className="font-mono text-xs text-security-text">
                                 &copy; {currentYear} Minh Phan. All rights
                                 reserved.
                             </p>

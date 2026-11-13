@@ -53,6 +53,7 @@ export function SingleFeatureCard({
                                 <Image
                                     src={logo}
                                     alt={`${title} logo`}
+                                    sizes="240px"
                                     className={clsx(
                                         "h-full w-full object-contain",
                                         logoClassName,
@@ -94,6 +95,7 @@ export function SingleFeatureCard({
                         <Image
                             src={thumb}
                             alt={`${title} preview`}
+                            sizes="(min-width: 1280px) 560px, (min-width: 768px) 44vw, 90vw"
                             className="h-full w-full object-cover"
                         />
                     </div>

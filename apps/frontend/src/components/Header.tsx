@@ -229,7 +229,6 @@ export function Header({
                     <div className="flex items-center gap-3">
                         <Link
                             href="/"
-                            aria-label="Home"
                             className="group flex items-center gap-2"
                         >
                             <span className="font-mono text-lg md:text-xl text-security-light group-hover:text-accent transition-colors">

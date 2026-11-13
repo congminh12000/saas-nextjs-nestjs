@@ -74,7 +74,7 @@ module.exports = {
                 "security-dark": "#141415",
                 "security-mid": "#1C1C1E",
                 "security-border": "#2A2A2C",
-                "security-muted": "#6B6B6F",
+                "security-muted": "#8A8A8F",
                 "security-text": "#A1A1A6",
                 "security-light": "#E8E8ED",
 
@@ -156,9 +156,22 @@ module.exports = {
                 "4xl": "2rem",
             },
             fontFamily: {
-                sans: ["IBM Plex Sans", ...defaultTheme.fontFamily.sans],
-                display: ["JetBrains Mono", ...defaultTheme.fontFamily.mono],
-                mono: ["JetBrains Mono", ...defaultTheme.fontFamily.mono],
+                // --font-sans / --font-mono are set by next/font in _app.tsx (self-hosted)
+                sans: [
+                    "var(--font-sans)",
+                    "IBM Plex Sans",
+                    ...defaultTheme.fontFamily.sans,
+                ],
+                display: [
+                    "var(--font-mono)",
+                    "JetBrains Mono",
+                    ...defaultTheme.fontFamily.mono,
+                ],
+                mono: [
+                    "var(--font-mono)",
+                    "JetBrains Mono",
+                    ...defaultTheme.fontFamily.mono,
+                ],
             },
             maxWidth: {
                 "2xl": "40rem",

@@ -188,6 +188,11 @@
     }
 }
 
+/* Hero headline entrance - CSS only so it doesn't wait for hydration */
+.animate-headline {
+    animation: fadeInUp 0.6s ease-out both;
+}
+
 /* Scanning line animation - desktop only, GPU accelerated, fully isolated */
 .scan-line {
     position: absolute;
@@ -345,7 +350,7 @@
 .prose-docs h4,
 .prose-docs h5,
 .prose-docs h6 {
-    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-family: var(--font-mono), "JetBrains Mono", ui-monospace, monospace;
     color: #e8e8ed; /* security-light */
     font-weight: 600;
 }
@@ -384,7 +389,7 @@
 }
 
 .prose-docs code:not(pre code) {
-    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-family: var(--font-mono), "JetBrains Mono", ui-monospace, monospace;
     background-color: #141415; /* security-dark */
     color: #00ff88; /* accent */
     padding: 0.2em 0.4em;
@@ -401,7 +406,7 @@
 }
 
 .prose-docs pre code {
-    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-family: var(--font-mono), "JetBrains Mono", ui-monospace, monospace;
     background: transparent;
     color: #e8e8ed; /* security-light */
     padding: 0;
@@ -433,7 +438,7 @@
 }
 
 .prose-docs li::marker {
-    color: #6b6b6f; /* security-muted */
+    color: #8a8a8f; /* security-muted */
 }
 
 .prose-docs hr {
@@ -453,7 +458,7 @@
 }
 
 .prose-docs th {
-    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-family: var(--font-mono), "JetBrains Mono", ui-monospace, monospace;
     color: #e8e8ed; /* security-light */
     background-color: #141415; /* security-dark */
     padding: 0.75rem 1rem;

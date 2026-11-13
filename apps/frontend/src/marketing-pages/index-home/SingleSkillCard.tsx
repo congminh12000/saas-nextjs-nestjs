@@ -33,6 +33,13 @@ export function SingleSkillCard({
     };
 
 
+    const topItemStyles: Record<SkillVariant, string> = {
+        accent: "border-accent/50 bg-accent/10",
+        warning: "border-amber-400/50 bg-amber-400/10",
+        danger: "border-rose-400/50 bg-rose-400/10",
+        brand: "border-violet-400/50 bg-violet-400/10",
+    };
+
     const tagStyles: Record<SkillVariant, string> = {
         accent: "border-accent/20 text-security-text",
         warning: "border-amber-400/20 text-security-text",
@@ -73,9 +80,19 @@ export function SingleSkillCard({
                         />
                         <h3 className="font-display md:text-xl">{title}</h3>
                     </div>
-                    <p className="mt-6 text-base md:text-lg text-security-light">
-                        {topItems.join(", ")}
-                    </p>
+                    <div className="mt-6 flex flex-wrap gap-2">
+                        {topItems.map((item) => (
+                            <span
+                                key={item}
+                                className={clsx(
+                                    "rounded-full border px-3 py-1 text-sm text-security-light",
+                                    topItemStyles[variant],
+                                )}
+                            >
+                                {item}
+                            </span>
+                        ))}
+                    </div>
                 </div>
 
                 {/* Option 2: Score ring on the right (locked) */}

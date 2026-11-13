@@ -12,6 +12,9 @@ export const auth0 = new Auth0Client({
     // Use v2 logout strategy - clears cookies BEFORE redirect to Auth0
     // This is more reliable than OIDC logout which clears cookies on return
     logoutStrategy: "v2",
+    // Return 204 (not 401) from /auth/profile for logged-out visitors,
+    // so public pages don't log a console error on every visit.
+    noContentProfileResponseWhenUnauthenticated: true,
     authorizationParameters: {
         scope: "openid profile email offline_access",
         audience: process.env.AUTH0_AUDIENCE,

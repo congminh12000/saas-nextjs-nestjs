@@ -4,20 +4,14 @@ export default function Document(props: any) {
     return (
         <Html
             className="h-full scroll-smooth bg-security-black antialiased"
-            lang="en"
+            lang="vi"
         >
             <Head>
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link
-                    rel="preconnect"
-                    href="https://fonts.gstatic.com"
-                    crossOrigin="anonymous"
-                />
-                {/* IBM Plex Sans for body, JetBrains Mono for display/code */}
-                <link
-                    rel="stylesheet"
-                    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
-                />
+                <link rel="icon" href="/favicon.ico" sizes="48x48" />
+                <link rel="icon" href="/icon.png" type="image/png" />
+                <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+                <meta name="theme-color" content="#0a0a0b" />
+                {/* Fonts (IBM Plex Sans, JetBrains Mono) are self-hosted via next/font in _app.tsx */}
             </Head>
 
             <body className="bg-security-black text-security-light">

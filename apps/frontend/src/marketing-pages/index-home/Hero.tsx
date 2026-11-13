@@ -31,6 +31,12 @@ import sstLogo from "../../images/sst-logo.png";
 import sstechThumb from "../../images/sstech-thumb.jpg";
 import proshipLogo from "../../images/logo-proship-resize.png";
 import proshipThumb from "../../images/proship-thumb.jpg";
+import scummyBearsLogo from "../../images/scummybears-logo.png";
+import scummyBearsThumb from "../../images/scummybears-thumb.jpg";
+import apocalypseClosetLogo from "../../images/apocalypsecloset-logo.webp";
+import apocalypseClosetThumb from "../../images/apocalypsecloset-thumb.jpg";
+import shopVoidLogo from "../../images/shopvoid-logo.png";
+import shopVoidThumb from "../../images/shopvoid-thumb.jpg";
 import educationImage from "../../images/NTT-Edu.jpg";
 import {
     // ArrowDownTrayIcon,
@@ -86,7 +92,7 @@ const skillCards: SingleSkillCardProps[] = [
         title: "Data",
         icon: CircleStackIcon,
         topItems: ["PostgreSQL", "MongoDB", "Redis"],
-        tags: ["TypeORM", "Cache / Session / Queue)"],
+        tags: ["TypeORM", "Cache / Session / Queue"],
         variant: "danger",
         score: 7,
     },
@@ -101,6 +107,57 @@ const skillCards: SingleSkillCardProps[] = [
 ];
 
 const experienceFeatures = [
+    {
+        title: "Scummy Bears: Dark Streetwear, Alt, Goth & Rave Fashion",
+        titleSub: "Website thương mại điện tử thời trang",
+        description:
+            "Xây dựng cửa hàng online cho thương hiệu thời trang dark streetwear, alt, goth & rave.",
+        frameworks: [
+            "Shopify",
+            "Danh mục sản phẩm",
+            "Bộ sưu tập & Collab",
+            "Khuyến mãi theo giỏ hàng",
+            "Giỏ hàng & Thanh toán",
+        ],
+        linkUrl: "https://www.scummybears.com/",
+        linkText: "Xem dự án",
+        logo: scummyBearsLogo,
+        logoClassName: "invert",
+        thumb: scummyBearsThumb,
+    },
+    {
+        title: "Apocalypse Closet: Gothic & Grunge Streetwear",
+        titleSub: "Website bán áo thun gothic",
+        description:
+            "Xây dựng website bán áo thun gothic in theo đơn (made to order) cho thương hiệu độc lập.",
+        frameworks: [
+            "Trang sản phẩm",
+            "Chọn màu & size",
+            "Lookbook",
+            "Journal",
+            "Thanh toán Fourthwall",
+        ],
+        linkUrl: "https://apocalypsecloset.com/",
+        linkText: "Xem dự án",
+        logo: apocalypseClosetLogo,
+        thumb: apocalypseClosetThumb,
+    },
+    {
+        title: "VOID.CO: Premium Dark Streetwear from Canada",
+        titleSub: "Website thương hiệu streetwear",
+        description:
+            "Xây dựng website cho thương hiệu dark streetwear Canada, bán các bộ sưu tập giới hạn.",
+        frameworks: [
+            "Landing page thương hiệu",
+            "Bộ sưu tập giới hạn",
+            "Giỏ hàng",
+            "Ship toàn cầu",
+        ],
+        linkUrl: "https://shopvoid.co/",
+        linkText: "Xem dự án",
+        logo: shopVoidLogo,
+        thumb: shopVoidThumb,
+    },
     {
         title: "Freightek: Phần Mềm Freight Forwarder | Nền Tảng Doanh Nghiệp Logistics",
         titleSub: "Phần Mềm Freight Forwarder",
@@ -165,10 +222,6 @@ const supplementCards = [
         title: "Tự học",
         description:
             "Có khả năng nghiên cứu và cập nhật kiến thức mới để giải quyết các vấn đề phát sinh.",
-    },
-    {
-        title: "Tiếng Anh",
-        description: "Chỉ biết Đọc và Viết 🙁.",
     },
 ];
 
@@ -334,9 +387,9 @@ export function Hero({ user: _user }: { user: UserDto }) {
                         <div className="relative aspect-4/5 w-full overflow-hidden rounded-2xl border border-security-border bg-security-black/40 shadow">
                             <Image
                                 src={portraitImage}
-                                alt="Profile portrait"
+                                alt="Phan Công Minh - Full-stack Developer"
                                 fill
-                                sizes="(min-width: 768px) 40vw, 90vw"
+                                sizes="(min-width: 1280px) 480px, (min-width: 768px) 38vw, 92vw"
                                 className="object-cover"
                                 priority
                             />
@@ -391,6 +444,7 @@ export function Hero({ user: _user }: { user: UserDto }) {
                                     <Image
                                         src={zaloQrImage}
                                         alt="Zalo QR"
+                                        sizes="(min-width: 640px) 400px, 85vw"
                                         className="h-auto w-full object-cover"
                                     />
                                 </div>
@@ -483,7 +537,8 @@ export function Hero({ user: _user }: { user: UserDto }) {
                         <div className="relative h-[55vh] min-h-[320px] w-full overflow-hidden">
                             <Image
                                 src={educationImage}
-                                alt="Education highlight"
+                                alt="Trường Đại học Nguyễn Tất Thành"
+                                sizes="100vw"
                                 className="h-full w-full object-cover object-top"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-security-black/70 via-transparent to-transparent" />
@@ -574,7 +629,7 @@ export function Hero({ user: _user }: { user: UserDto }) {
                         </span>
                     </div>
 
-                    <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
                         {supplementCards.map((card, index) => (
                             <FadeInOnScroll
                                 key={card.title}
