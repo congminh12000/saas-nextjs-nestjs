@@ -27,16 +27,16 @@ import Link from "next/link";
 import portraitImage from "../../images/phan-cong-minh.png";
 import freightekLogo from "../../images/freightek.webp";
 import freightekThumb from "../../images/freightek-thumb.jpg";
-import sstLogo from "../../images/sst-logo.png";
-import sstechThumb from "../../images/sstech-thumb.jpg";
 import proshipLogo from "../../images/logo-proship-resize.png";
 import proshipThumb from "../../images/proship-thumb.jpg";
 import scummyBearsLogo from "../../images/scummybears-logo.png";
 import scummyBearsThumb from "../../images/scummybears-thumb.jpg";
 import apocalypseClosetLogo from "../../images/apocalypsecloset-logo.webp";
 import apocalypseClosetThumb from "../../images/apocalypsecloset-thumb.jpg";
-import shopVoidLogo from "../../images/shopvoid-logo.png";
-import shopVoidThumb from "../../images/shopvoid-thumb.jpg";
+import heliotEmilLogo from "../../images/heliotemil-logo.png";
+import heliotEmilThumb from "../../images/heliotemil-thumb.jpg";
+import infDarkLogo from "../../images/infdark-logo.webp";
+import infDarkThumb from "../../images/infdark-thumb.jpg";
 import educationImage from "../../images/NTT-Edu.jpg";
 import {
     // ArrowDownTrayIcon,
@@ -143,20 +143,38 @@ const experienceFeatures = [
         thumb: apocalypseClosetThumb,
     },
     {
-        title: "VOID.CO: Premium Dark Streetwear from Canada",
-        titleSub: "Website thương hiệu streetwear",
+        title: "HELIOT EMIL: Official Site | Luxury Technical Fashion",
+        titleSub: "Website thương mại điện tử thời trang cao cấp",
         description:
-            "Xây dựng website cho thương hiệu dark streetwear Canada, bán các bộ sưu tập giới hạn.",
+            "Xây dựng cửa hàng online cho thương hiệu thời trang kỹ thuật cao cấp HELIOT EMIL (Đan Mạch).",
         frameworks: [
-            "Landing page thương hiệu",
-            "Bộ sưu tập giới hạn",
-            "Giỏ hàng",
-            "Ship toàn cầu",
+            "Shopify",
+            "Menswear & Womenswear",
+            "Bộ sưu tập theo mùa",
+            "Tài khoản khách hàng",
+            "Giỏ hàng & Thanh toán",
         ],
-        linkUrl: "https://shopvoid.co/",
+        linkUrl: "https://heliotemil.com/",
         linkText: "Xem dự án",
-        logo: shopVoidLogo,
-        thumb: shopVoidThumb,
+        logo: heliotEmilLogo,
+        thumb: heliotEmilThumb,
+    },
+    {
+        title: "INF: An Independent Designer Brand Based in Taiwan",
+        titleSub: "Website thương hiệu thời trang thiết kế",
+        description:
+            "Xây dựng website cho thương hiệu thời trang thiết kế độc lập INF (Đài Loan).",
+        frameworks: [
+            "Squarespace",
+            "Online Shop",
+            "Lookbook & Bộ sưu tập",
+            "Cửa hàng vật lý",
+            "Tìm kiếm sản phẩm",
+        ],
+        linkUrl: "https://www.infdark.com/",
+        linkText: "Xem dự án",
+        logo: infDarkLogo,
+        thumb: infDarkThumb,
     },
     {
         title: "Freightek: Phần Mềm Freight Forwarder | Nền Tảng Doanh Nghiệp Logistics",
@@ -175,22 +193,6 @@ const experienceFeatures = [
         linkText: "Xem dự án",
         logo: freightekLogo,
         thumb: freightekThumb,
-    },
-    {
-        title: "SSTech – Quality Software Development",
-        titleSub: "Phát triển phần mềm chất lượng cao",
-        description: "Chuyên cung cấp dịch vụ và xây dựng phầm mềm cho doanh nghiệp.",
-        frameworks: [
-            "Web Application",
-            "Mobile Application",
-            "Blockchain Application",
-            "eCommerce Solutions",
-        ],
-        linkUrl: "https://www.sstechvn.com/",
-        linkText: "Xem dự án",
-        logo: sstLogo,
-        logoClassName: "brightness-175",
-        thumb: sstechThumb,
     },
     {
         title: "Proship Logistics: Giải pháp Vận chuyển Nhanh hơn, Tối ưu hơn cho Doanh nghiệp",
