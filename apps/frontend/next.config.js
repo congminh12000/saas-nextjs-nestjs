@@ -21,6 +21,10 @@ const nextConfig = {
     async rewrites() {
         return [
             {
+                source: "/noctis-website-proposal",
+                destination: "/noctis-website-proposal.html",
+            },
+            {
                 source: "/plaus/js/script.js",
                 destination: "https://plausible.io/js/script.js",
             },

@@ -1,0 +1,540 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>NOCTIS Website Proposal</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;900&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300&family=JetBrains+Mono:wght@400;500&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap">
+<style>
+/* Layout: editorial two-column grid — mono margin labels on the left, content on the right, like a printed spec sheet on raw concrete */
+:root {
+  --concrete: #121313;      /* page ground, cast concrete at night */
+  --slab: #1a1c1c;          /* raised surfaces */
+  --formwork: #2a2d2d;      /* rules, borders: formwork seams */
+  --ash: #8b9191;           /* secondary text */
+  --bone: #e6e3dc;          /* primary text */
+  --ember: #b8835a;         /* single accent: oxidised steel rebar */
+  --moss: #8db57f;          /* semantic: free / included */
+  --f-display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --f-body: "Be Vietnam Pro", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { background: var(--concrete); }
+body {
+  background: var(--concrete);
+  color: var(--bone);
+  font-family: var(--f-body);
+  font-size: 16px;
+  line-height: 1.7;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+}
+body::after {
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: .07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.wrap {
+  position: relative; z-index: 1;
+  max-width: 1120px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: var(--bone); text-decoration-color: var(--ember); text-underline-offset: 4px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--ember); outline-offset: 3px; }
+.mono { font-family: var(--f-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ash); font-weight: 400; }
+strong { font-weight: 600; color: var(--bone); }
+
+/* Hero */
+.hero { padding-block: 56px 72px; border-bottom: 1px solid var(--formwork); }
+.hero-top { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 24px; }
+.hero h1 {
+  font-family: var(--f-display); font-weight: 900; text-transform: uppercase;
+  line-height: .82; letter-spacing: -.01em;
+  margin: 48px 0 0; color: var(--bone);
+}
+/* Each line is sized by script so both fill the same width; these sizes are the no-script fallback */
+.hero h1 .line { display: block; white-space: nowrap; width: max-content; max-width: 100%; }
+.hero h1 .l1 { font-size: clamp(48px, 12.5vw, 160px); }
+.hero h1 .l2 { margin-top: .14em; font-size: clamp(30px, 7.5vw, 98px); -webkit-text-stroke: 1px var(--ash); color: transparent; }
+.hero-sub { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px 48px; margin-top: 40px; align-items: end; }
+.hero-sub p { margin: 0; font-size: clamp(18px, 2.2vw, 22px); line-height: 1.5; max-width: 34ch; text-wrap: balance; }
+.hero-sub p { color: var(--ash); }
+.hero-sub p em, .lead em, .note em, .pkg li em { font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif; font-style: italic; font-weight: 300; font-size: 1.18em; letter-spacing: .01em; color: var(--ember); font-variant-numeric: lining-nums; }
+.meta { display: grid; grid-template-columns: auto 1fr; gap: 6px 20px; }
+.meta dt { margin: 0; }
+.meta dd { margin: 0; font-size: 14px; }
+
+/* Sections */
+section { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 16px 48px; padding-block: 72px; border-bottom: 1px solid var(--formwork); }
+.label { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 24px); align-self: start; display: flex; flex-direction: column; gap: 6px; }
+.label .idx { color: var(--ember); }
+h2 {
+  font-family: var(--f-display); font-weight: 700; text-transform: uppercase;
+  font-size: clamp(40px, 6vw, 68px); line-height: 1.18; margin: 0 0 28px; letter-spacing: .005em; text-wrap: balance;
+}
+h3 { font-family: var(--f-display); font-weight: 700; text-transform: uppercase; font-size: 26px; line-height: 1.25; margin: 0 0 10px; letter-spacing: .02em; }
+.lead { font-size: 19px; line-height: 1.6; max-width: 62ch; margin: 0 0 32px; }
+p { max-width: 65ch; }
+.body > p:last-child { margin-bottom: 0; }
+
+.grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--formwork); border: 1px solid var(--formwork); }
+.grid-2 > div { background: var(--concrete); padding: 24px; min-width: 0; }
+.grid-2 p { margin: 0; color: var(--ash); font-size: 15px; }
+
+/* Sitemap */
+.sitemap { list-style: none; margin: 0; padding: 0; }
+.sitemap li { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 8px 24px; padding: 14px 0; border-bottom: 1px solid var(--formwork); align-items: baseline; }
+.sitemap-group { display: grid; grid-template-columns: minmax(0, 1fr) 180px; border-top: 1px solid var(--formwork); }
+.sitemap-group .sitemap li:last-child { border-bottom: 0; }
+.sitemap-group { border-bottom: 1px solid var(--formwork); }
+.phase-cell { border-left: 1px solid var(--formwork); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 16px; text-align: center; }
+.sitemap.extra li { grid-template-columns: 140px minmax(0, 1fr) 180px; }
+.sitemap.extra .tags { display: flex; flex-direction: column; align-items: center; gap: 8px; align-self: center; }
+.tag.free { border-color: var(--moss); color: var(--moss); }
+.sitemap .path { font-family: var(--f-mono); font-size: 13px; color: var(--ember); }
+.sitemap .name { font-weight: 500; }
+.sitemap .desc { display: block; color: var(--ash); font-size: 14px; font-weight: 300; }
+.tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; padding: 3px 8px; border: 1px solid var(--formwork); color: var(--ash); white-space: nowrap; }
+.tag.on { border-color: var(--ember); color: var(--ember); }
+
+/* Phases */
+.phases { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; margin-top: 8px; align-items: start; }
+.phase { border: 1px solid var(--formwork); background: var(--concrete); padding: 28px 24px; min-width: 0; }
+.phase.now { border-color: var(--ember); background: var(--slab); }
+.phase ul { margin: 12px 0 0; padding-left: 18px; color: var(--ash); font-size: 15px; }
+.phase li { margin-bottom: 6px; }
+.stack { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 32px; }
+
+/* Packages */
+.packages { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-items: start; }
+.pkg { border: 1px solid var(--formwork); padding: 28px 24px; display: flex; flex-direction: column; gap: 14px; min-width: 0; background: var(--concrete); }
+.pkg.rec { background: var(--slab); border-color: var(--ember); }
+.pkg-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.price { font-family: var(--f-display); font-weight: 900; font-size: 54px; line-height: 1; font-variant-numeric: tabular-nums; }
+.price small { font-family: var(--f-body); font-size: 15px; font-weight: 400; color: var(--ash); margin-left: 6px; }
+.pkg .for { color: var(--ash); font-size: 14px; margin: 0; }
+.pkg ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--formwork); }
+.pkg li { padding: 9px 0 9px 22px; border-bottom: 1px solid var(--formwork); font-size: 14.5px; position: relative; line-height: 1.5; }
+.pkg li::before { content: ""; position: absolute; left: 2px; top: 17px; width: 9px; height: 1px; background: var(--ember); }
+.pkg li.plus { color: var(--ash); }
+.pkg .time { display: flex; justify-content: space-between; gap: 12px; font-size: 14px; }
+.note { font-size: 14px; color: var(--ash); margin-top: 20px; max-width: none; }
+.note.italic { font-style: italic; }
+
+/* Timeline */
+.timeline { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+.timeline li { display: grid; grid-template-columns: 56px 120px minmax(0, 1fr); gap: 6px 20px; padding: 18px 0; border-bottom: 1px solid var(--formwork); counter-increment: step; }
+.timeline li:first-child { border-top: 1px solid var(--formwork); }
+.timeline li::before { content: counter(step, decimal-leading-zero); font-family: var(--f-display); font-weight: 700; font-size: 30px; line-height: 1; color: var(--ember); }
+.timeline .wk { font-family: var(--f-mono); font-size: 12px; color: var(--ash); padding-top: 6px; text-transform: uppercase; letter-spacing: .06em; }
+.timeline .what strong { display: block; font-weight: 500; }
+.timeline .what span { color: var(--ash); font-size: 14.5px; }
+
+/* Tables */
+.table-wrap { overflow-x: auto; border: 1px solid var(--formwork); }
+table { width: 100%; border-collapse: collapse; font-size: 14.5px; min-width: 560px; }
+th, td { text-align: left; padding: 13px 16px; border-bottom: 1px solid var(--formwork); vertical-align: top; }
+th { font-family: var(--f-mono); font-weight: 400; font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--ash); background: var(--slab); }
+tr:last-child td { border-bottom: 0; }
+td.num { font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--bone); font-weight: 500; }
+td .sub { display: block; color: var(--ash); font-size: 13px; }
+td .tag { margin-left: 8px; vertical-align: middle; }
+.sub-h { margin-top: 40px; }
+.sub-lead { color: var(--ash); font-size: 14.5px; margin: 0 0 16px; }
+tr.total td { background: var(--slab); font-weight: 500; }
+tr.group td { background: var(--slab); font-family: var(--f-mono); font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--ember); padding-block: 10px; border-top: 1px solid var(--formwork); }
+
+/* Lists */
+.terms { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px 40px; }
+.terms > div { min-width: 0; }
+.terms ul, .checklist { margin: 0; padding-left: 18px; color: var(--ash); font-size: 15px; }
+.terms li, .checklist li { margin-bottom: 8px; }
+.terms li strong, .checklist li strong { color: var(--bone); }
+.pay { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--formwork); border: 1px solid var(--formwork); margin-bottom: 32px; }
+.pay div { background: var(--concrete); padding: 18px; }
+.pay .pct { font-family: var(--f-display); font-weight: 900; font-size: 44px; line-height: 1; color: var(--bone); }
+.pay .when { font-size: 13.5px; color: var(--ash); margin-top: 6px; line-height: 1.45; }
+.checklist { columns: 2 260px; column-gap: 40px; }
+.checklist li { break-inside: avoid; }
+
+/* Close */
+.close { padding-block: 96px 72px; }
+.close h2 { font-size: clamp(48px, 9vw, 120px); max-width: 12ch; }
+.contact { display: flex; flex-wrap: wrap; gap: 16px 48px; margin-top: 32px; align-items: baseline; }
+.contact a { font-family: var(--f-display); font-weight: 700; font-size: 28px; text-transform: uppercase; letter-spacing: .02em; }
+footer { padding-block: 24px 40px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+
+@media (max-width: 760px) {
+  .hero h1 .l1 { font-size: 25vw; }
+  .hero h1 .l2 { font-size: 15vw; }
+  .grid-2, .phases, .packages { grid-template-columns: minmax(0, 1fr); }
+  section { grid-template-columns: minmax(0, 1fr); padding-block: 56px; }
+  .label { position: static; flex-direction: row; gap: 12px; }
+  .sitemap li, .sitemap.extra li { grid-template-columns: minmax(0, 1fr); }
+  .sitemap-group { grid-template-columns: minmax(0, 1fr); }
+  .phase-cell { order: -1; border-left: 0; border-bottom: 1px solid var(--formwork); flex-direction: row; justify-content: flex-start; padding: 12px 0; }
+  .sitemap.extra .tags { flex-direction: row; align-items: flex-start; align-self: start; }
+  .timeline li { grid-template-columns: 44px minmax(0, 1fr); }
+  .timeline .wk { grid-column: 2; padding-top: 0; }
+  .timeline .what { grid-column: 2; }
+  .pay { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero h1 { animation: rise .9s cubic-bezier(.2,.7,.2,1) both; }
+  .hero h1 .l2 { animation: rise .9s .12s cubic-bezier(.2,.7,.2,1) both; }
+  @keyframes rise { from { transform: translateY(18px); opacity: .25; } to { transform: none; opacity: 1; } }
+}
+</style>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="hero-top">
+    <span class="mono">Đề xuất thiết kế &amp; xây dựng website</span>
+    <span class="mono">Ref. NCTS-WEB-01 / 2026</span>
+  </div>
+  <h1 id="hero-title"><span class="line l1">Noctis</span><span class="line l2">Streetwear</span></h1>
+  <div class="hero-sub">
+    <p>Một <em>showroom trực tuyến</em> mang tinh thần dark editorial, sẵn sàng trở thành <em>cửa hàng quốc tế</em> khi NOCTIS mở bán.</p>
+    <dl class="meta">
+      <dt class="mono">Gửi</dt><dd>NOCTIS</dd>
+      <dt class="mono">Từ</dt><dd>Minh Phan, <a href="https://minhphan.vercel.app/" target="_blank" rel="noopener">minhphan.vercel.app</a></dd>
+      <dt class="mono">Ngày</dt><dd>14.11.2026</dd>
+      <dt class="mono">Hiệu lực</dt><dd>7 ngày kể từ ngày gửi</dd>
+    </dl>
+  </div>
+</header>
+
+<section>
+  <div class="label"><span class="mono idx">A</span><span class="mono">Hiểu về dự án</span></div>
+  <div class="body">
+    <h2>Không phải một website doanh nghiệp</h2>
+    <p class="lead">NOCTIS là một thương hiệu <em>streetwear alternative</em> đứng giữa âm nhạc underground, nghệ thuật, hợp tác với nghệ sĩ và cứu hộ động vật. Website cần mang đúng cá tính đó, đồng thời đáp ứng bốn yêu cầu thực tế của giai đoạn đầu.</p>
+    <div class="grid-2">
+      <div><h3>Showroom trước</h3><p>Shop hiển thị đầy đủ sản phẩm, bộ sưu tập và giá với trạng thái Coming Soon / Available Soon. Chưa có giỏ hàng hay thanh toán.</p></div>
+      <div><h3>Bán qua đối tác</h3><p>Soft launch qua các điểm ký gửi. Website chỉ rõ nơi khách có thể xem và mua sản phẩm trực tiếp.</p></div>
+      <div><h3>Tự quản lý</h3><p>Đội NOCTIS tự thêm sản phẩm, bộ sưu tập, bài Journal và nghệ sĩ mới mà không cần đến lập trình viên.</p></div>
+      <div><h3>Mở rộng, không làm lại</h3><p>Sẵn sàng bật mua hàng online, PayPal, vận chuyển quốc tế và tiếng Việt trên cùng một nền tảng.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="label"><span class="mono idx">B</span><span class="mono">Hướng thiết kế</span></div>
+  <div class="body">
+    <h2>Màu bê tông, mảng tối và khoảng trống</h2>
+    <p class="lead">Giao diện được dựng như một <em>tạp chí in trên nền bê tông</em>: lưới chặt, chữ lớn, ảnh campaign chiếm trọn khung hình và nhiều khoảng trống có chủ đích.</p>
+    <div class="grid-2">
+      <div><h3>Bảng màu</h3><p>Đen, xám than và các sắc xám bê tông lấy từ bộ nhận diện của NOCTIS. Màu nhấn chỉ dùng ở một vài điểm như trạng thái sản phẩm hay nút hành động.</p></div>
+      <div><h3>Typography</h3><p>Chữ display cô đặc cho tiêu đề, chữ đọc thoáng cho nội dung, chữ mono cho mã sản phẩm, size và thông số. Mọi font đều hỗ trợ tiếng Việt cho giai đoạn sau.</p></div>
+      <div><h3>Hình ảnh</h3><p>Ảnh campaign và artwork là nhân vật chính. Bố cục bất đối xứng, ảnh tràn viền xen kẽ với các khối chữ kiểu editorial.</p></div>
+      <div><h3>Chuyển động</h3><p>Ít nhưng có chủ đích: chuyển trang mượt, ảnh hiện dần khi cuộn, hover trên sản phẩm. Không hiệu ứng thừa làm chậm trang trên điện thoại.</p></div>
+    </div>
+    <p class="note italic">Trước khi thiết kế chi tiết, mình sẽ gửi <em>moodboard</em> và một bản <em>demo</em> giao diện trang chủ để NOCTIS duyệt hướng đi tổng thể.</p>
+  </div>
+</section>
+
+<section>
+  <div class="label"><span class="mono idx">C</span><span class="mono">Sơ đồ website</span></div>
+  <div class="body">
+    <h2>10 nhóm trang</h2>
+    <p class="lead">9 trang theo brief, cộng thêm trang Stockists mình đề xuất làm <em>miễn phí</em> để phục vụ đợt bán ký gửi.</p>
+    <div class="sitemap-group">
+      <ul class="sitemap">
+        <li><span class="path">/</span><span class="name">Trang chủ<span class="desc">Ảnh campaign, giới thiệu thương hiệu, bộ sưu tập nổi bật, drop sắp tới</span></span></li>
+        <li><span class="path">/about</span><span class="name">Về NOCTIS<span class="desc">Câu chuyện, tinh thần và giá trị thương hiệu</span></span></li>
+        <li><span class="path">/shop</span><span class="name">Cửa hàng<span class="desc">Danh mục sản phẩm, lọc theo bộ sưu tập, loại và trạng thái</span></span></li>
+        <li><span class="path">/shop/[sản-phẩm]</span><span class="name">Chi tiết sản phẩm<span class="desc">Gallery ảnh, giá, size, chất liệu, trạng thái, nơi mua</span></span></li>
+        <li><span class="path">/collections</span><span class="name">Bộ sưu tập &amp; drop sắp tới<span class="desc">Danh sách bộ sưu tập, lịch ra mắt</span></span></li>
+        <li><span class="path">/artists</span><span class="name">Nghệ sĩ &amp; hợp tác<span class="desc">Hồ sơ nghệ sĩ, dự án collab, sản phẩm liên quan</span></span></li>
+        <li><span class="path">/journal</span><span class="name">Blog / Journal<span class="desc">Bài viết, phỏng vấn, hậu trường, âm nhạc</span></span></li>
+        <li><span class="path">/community</span><span class="name">Cứu hộ động vật &amp; cộng đồng<span class="desc">Các dự án hỗ trợ, đối tác cứu hộ, cách tham gia</span></span></li>
+        <li><span class="path">/contact</span><span class="name">Liên hệ<span class="desc">Form liên hệ, email, mạng xã hội, hợp tác và wholesale</span></span></li>
+      </ul>
+      <div class="phase-cell">
+        <span class="tag">Giai đoạn 1</span>
+        <span class="mono">9 trang</span>
+      </div>
+    </div>
+    <ul class="sitemap extra">
+      <li><span class="path">/stockists</span><span class="name">Điểm bán<span class="desc">Danh sách đối tác ký gửi, địa chỉ, giờ mở cửa, link bản đồ</span></span><span class="tags"><span class="tag on">Đề xuất thêm</span><span class="tag free">Miễn phí</span></span></li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="label"><span class="mono idx">D</span><span class="mono">Công nghệ &amp; lộ trình</span></div>
+  <div class="body">
+    <h2>Xây một lần, mở rộng nhiều lần</h2>
+    <p class="lead">Giao diện và dữ liệu được tách riêng. Nhờ vậy NOCTIS có thể bật thương mại điện tử và thêm ngôn ngữ mà <em>không phải làm lại</em> phần thiết kế đã đầu tư.</p>
+    <div class="stack">
+      <span class="tag on">Next.js</span><span class="tag on">Sanity CMS</span><span class="tag on">Cloudflare</span><span class="tag">Shopify headless + PayPal (giai đoạn 2)</span>
+    </div>
+    <div class="phases">
+      <div class="phase now">
+        <span class="mono">Giai đoạn 1 · Báo giá này</span>
+        <h3>Showroom</h3>
+        <ul>
+          <li>Thiết kế và xây dựng toàn bộ website theo gói đã chọn</li>
+          <li>CMS để tự cập nhật sản phẩm, bộ sưu tập, bài viết, nghệ sĩ</li>
+          <li>Dữ liệu sản phẩm đã có sẵn giá, size, biến thể, tồn kho</li>
+          <li>Trạng thái Coming Soon / Available Soon / In Store / Sold Out</li>
+          <li>Cấu trúc sẵn sàng cho <code>/en</code> và <code>/vi</code></li>
+        </ul>
+      </div>
+      <div class="phase">
+        <span class="mono">Giai đoạn 2 · Khi mở bán</span>
+        <h3>Cửa hàng online</h3>
+        <ul>
+          <li>Kết nối Shopify: giỏ hàng, thanh toán, quản lý đơn</li>
+          <li>PayPal và thẻ quốc tế</li>
+          <li>Phí vận chuyển và thuế theo quốc gia</li>
+          <li>Giữ nguyên giao diện đã có</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <span class="mono">Giai đoạn 3 · Tùy chọn</span>
+        <h3>Tiếng Việt &amp; hơn nữa</h3>
+        <ul>
+          <li>Bản tiếng Việt cho toàn bộ website</li>
+          <li>Email marketing cho các đợt drop (nếu gói đã chọn chưa có)</li>
+          <li>Trang campaign riêng cho từng bộ sưu tập</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="label"><span class="mono idx">E</span><span class="mono">Gói dịch vụ</span></div>
+  <div class="body">
+    <h2>Ba mức đầu tư</h2>
+    <p class="lead">Cả ba gói đều dùng cùng nền tảng công nghệ và đều <em>nâng cấp lên giai đoạn 2</em> được. Khác biệt nằm ở mức độ thiết kế riêng và tính năng.</p>
+    <div class="packages">
+      <div class="pkg">
+        <div class="pkg-head"><h3>Cơ bản</h3></div>
+        <div class="price">8<small>triệu VNĐ</small></div>
+        <p class="for">Ra mắt nhanh, gọn, vẫn đúng tinh thần thương hiệu.</p>
+        <ul>
+          <li>Design system riêng cho NOCTIS (màu, chữ, thành phần)</li>
+          <li>Thiết kế riêng: Trang chủ, Shop, Chi tiết sản phẩm</li>
+          <li>Các trang còn lại dùng layout chung từ design system</li>
+          <li>Đủ 10 nhóm trang, responsive mobile và desktop</li>
+          <li>Sanity CMS và video hướng dẫn sử dụng</li>
+          <li>SEO cơ bản, Google Analytics</li>
+          <li>2 vòng chỉnh sửa thiết kế</li>
+          <li>Nhập sẵn tối đa 10 sản phẩm</li>
+        </ul>
+        <div class="time"><span class="mono">Thời gian</span><span>1–2 tuần</span></div>
+      </div>
+      <div class="pkg rec">
+        <div class="pkg-head"><h3>Tiêu chuẩn</h3><span class="tag on">Đề xuất</span></div>
+        <div class="price">10<small>triệu VNĐ</small></div>
+        <p class="for">Phù hợp nhất với mong muốn của NOCTIS: thiết kế riêng hoàn toàn, có chiều sâu. Chỉ thêm 2 triệu so với gói Cơ bản.</p>
+        <ul>
+          <li>Mọi thứ trong gói <em>Cơ bản</em></li>
+          <li>Thiết kế riêng từng trang, duyệt trực tiếp trên bản demo website</li>
+          <li>Motion: chuyển trang, hiện ảnh khi cuộn, hover sản phẩm</li>
+          <li>Lookbook cho từng bộ sưu tập</li>
+          <li>Nút Notify me thu email khách quan tâm cho sản phẩm sắp ra mắt</li>
+          <li>Trang hồ sơ riêng cho từng nghệ sĩ</li>
+          <li>Tối ưu tốc độ tải ảnh campaign dung lượng lớn</li>
+          <li>3 vòng chỉnh sửa thiết kế</li>
+          <li>Nhập sẵn tối đa 20 sản phẩm</li>
+          <li>Bảo trì miễn phí 1 tháng</li>
+        </ul>
+        <div class="time"><span class="mono">Thời gian</span><span>2–3 tuần</span></div>
+      </div>
+      <div class="pkg">
+        <div class="pkg-head"><h3>Cao cấp</h3></div>
+        <div class="price">15<small>triệu VNĐ</small></div>
+        <p class="for">Thêm các hiệu ứng và tiện ích cho những đợt drop lớn.</p>
+        <ul>
+          <li>Mọi thứ trong gói <em>Tiêu chuẩn</em></li>
+          <li>Hiệu ứng tương tác nâng cao trên trang chủ và lookbook</li>
+          <li>Trang drop có đếm ngược ngày ra mắt</li>
+          <li>Kết nối email marketing (Mailchimp / Klaviyo)</li>
+          <li>4 vòng chỉnh sửa thiết kế</li>
+          <li>Nhập sẵn tối đa 40 sản phẩm</li>
+          <li>Bảo trì miễn phí 2 tháng</li>
+        </ul>
+        <div class="time"><span class="mono">Thời gian</span><span>3–4 tuần</span></div>
+      </div>
+    </div>
+    <p class="note italic">Thời gian thực hiện tính từ khi NOCTIS <em>gửi đủ nội dung và hình ảnh</em>. Giá chưa bao gồm chi phí domain, hosting, email (mục G). Tất cả gói đều có <em>30 ngày bảo hành</em> lỗi miễn phí sau khi ra mắt.</p>
+  </div>
+</section>
+
+<section>
+  <div class="label"><span class="mono idx">F</span><span class="mono">Quy trình</span></div>
+  <div class="body">
+    <h2>Từ moodboard đến ra mắt</h2>
+    <p class="lead">Mốc thời gian dưới đây áp dụng cho gói <em>Tiêu chuẩn</em>. NOCTIS <em>duyệt ở cuối mỗi bước</em> trước khi chuyển sang bước tiếp theo.</p>
+    <ol class="timeline">
+      <li><span class="wk">Tuần 1</span><span class="what"><strong>Khởi động &amp; moodboard</strong><span>Nhận tài liệu thương hiệu, thống nhất sitemap, moodboard và hướng thiết kế trang chủ.</span></span></li>
+      <li><span class="wk">Tuần 1–2</span><span class="what"><strong>Thiết kế giao diện</strong><span>Design system và thiết kế các trang, NOCTIS xem và duyệt trực tiếp trên bản demo website, cả desktop và mobile.</span></span></li>
+      <li><span class="wk">Tuần 2–3</span><span class="what"><strong>Phát triển</strong><span>Lập trình giao diện, dựng CMS, motion. NOCTIS xem tiến độ trên link demo.</span></span></li>
+      <li><span class="wk">Tuần 3</span><span class="what"><strong>Nội dung &amp; kiểm thử</strong><span>Nhập nội dung, kiểm tra trên nhiều thiết bị và trình duyệt, tối ưu tốc độ và SEO.</span></span></li>
+      <li><span class="wk">Cuối tuần 3</span><span class="what"><strong>Ra mắt &amp; bàn giao</strong><span>Gắn domain, bàn giao tài khoản và source code, video hướng dẫn sử dụng CMS.</span></span></li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="label"><span class="mono idx">G</span><span class="mono">Chi phí duy trì</span></div>
+  <div class="body">
+    <h2>Hạ tầng &amp; vận hành</h2>
+    <p class="lead">Ở giai đoạn showroom, chi phí duy trì được giữ ở mức <em>gọn nhẹ</em>. Mọi tài khoản đều <em>đăng ký dưới tên NOCTIS</em>, mình hỗ trợ thiết lập.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Hạng mục</th><th>Gợi ý</th><th>Chi phí ước tính</th></tr></thead>
+        <tbody>
+          <tr><td>Tên miền quốc tế</td><td>.com qua Cloudflare / Namecheap, ví dụ noctisclothing.com hoặc noctislabel.com<span class="sub">noctis.com và noctis.studio đã có chủ. Đăng ký được từ Việt Nam, thanh toán bằng thẻ quốc tế</span></td><td class="num">~ 300.000 – 400.000 đ/năm</td></tr>
+          <tr><td>Tên miền .vn (tùy chọn)</td><td>Giữ thương hiệu tại Việt Nam, trỏ về tên miền chính<span class="sub">Cần giấy tờ cá nhân hoặc doanh nghiệp</span></td><td class="num">~ 650.000 đ năm đầu<span class="sub">~ 470.000 đ/năm gia hạn</span></td></tr>
+          <tr><td>Hosting</td><td>Cloudflare, gói miễn phí<span class="sub">Được phép dùng cho website thương mại, đủ cho lượng truy cập giai đoạn đầu. Gói trả phí khi cần: ~ 5 USD/tháng</span></td><td class="num">0 đ</td></tr>
+          <tr><td>CMS</td><td>Sanity, gói miễn phí đủ cho giai đoạn đầu<span class="sub">Tối đa 20 tài khoản quản trị. Gói trả phí khi cần: ~ 15 USD/người/tháng</span></td><td class="num">0 đ</td></tr>
+          <tr><td>Email tên miền</td><td>Email dạng hello@tên-miền-noctis<span class="sub">Chuyển tiếp miễn phí về Gmail qua Cloudflare (0 đ), Zoho Mail Lite (~ 1 USD) hoặc Google Workspace Business Starter (~ 7–8,4 USD)</span></td><td class="num">0 – ~ 220.000 đ/người/tháng</td></tr>
+          <tr><td>Email marketing</td><td>Mailchimp / Klaviyo, gói miễn phí<span class="sub">Tối đa 250 người đăng ký và 500 email/tháng</span></td><td class="num">0 đ</td></tr>
+          <tr class="total"><td>Tổng giai đoạn 1</td><td>Chỉ tên miền quốc tế. Hosting, CMS và email chuyển tiếp đều miễn phí</td><td class="num">~ 300.000 – 400.000 đ/năm</td></tr>
+          <tr><td>Giai đoạn 2: Shopify</td><td>Shopify Basic<span class="sub">Shopify Payments chưa hỗ trợ Việt Nam, nên mỗi đơn qua PayPal chịu thêm 2% phí của Shopify, cộng phí giao dịch của PayPal</span></td><td class="num">~ 29 USD/tháng (trả theo năm)<span class="sub">~ 39 USD/tháng (trả theo tháng)</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3 class="sub-h">Tên miền còn trống</h3>
+    <p class="sub-lead">Kiểm tra ngày 14.11.2026. Tên miền có thể được người khác đăng ký bất kỳ lúc nào.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Tên miền</th><th>Năm đầu</th><th>Gia hạn / năm</th><th>Ghi chú</th></tr></thead>
+        <tbody>
+          <tr><td>noctisclothing.com <span class="tag on">Nên chọn</span></td><td class="num">~ 12 USD</td><td class="num">~ 12 USD</td><td>.com rõ là thương hiệu thời trang</td></tr>
+          <tr><td>noctislabel.com</td><td class="num">~ 12 USD</td><td class="num">~ 12 USD</td><td>Ngắn, hợp phong cách “label”</td></tr>
+          <tr><td>noctisstreetwear.com</td><td class="num">~ 12 USD</td><td class="num">~ 12 USD</td><td>Hơi dài</td></tr>
+          <tr><td>noctiscollective.com</td><td class="num">~ 12 USD</td><td class="num">~ 12 USD</td><td>Hợp với các dự án nghệ sĩ và cộng đồng</td></tr>
+          <tr><td>noctis.style</td><td class="num">~ 13 USD</td><td class="num">35 USD</td><td>Năm đầu rẻ, gia hạn đắt</td></tr>
+          <tr><td>noctis.clothing</td><td class="num">~ 20 USD</td><td class="num">33 USD</td><td>Gia hạn đắt</td></tr>
+          <tr><td>noctis.supply</td><td class="num">24 USD</td><td class="num">24 USD</td><td></td></tr>
+          <tr><td>noctis.fashion</td><td class="num">~ 28 USD</td><td class="num">~ 28 USD</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Giá dịch vụ bên thứ ba <em>có thể thay đổi</em> theo tỷ giá và chính sách nhà cung cấp.</p>
+  </div>
+</section>
+
+<section>
+  <div class="label"><span class="mono idx">H</span><span class="mono">Sau bàn giao</span></div>
+  <div class="body">
+    <h2>Đồng hành lâu dài</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Dịch vụ</th><th>Bao gồm</th><th>Chi phí</th></tr></thead>
+        <tbody>
+          <tr class="group"><td colspan="3">Sau khi ra mắt</td></tr>
+          <tr><td>Bảo hành</td><td>Sửa lỗi kỹ thuật phát sinh trong 30 ngày sau ra mắt</td><td class="num">Miễn phí</td></tr>
+          <tr><td>Bảo trì hàng tháng</td><td>Cập nhật kỹ thuật, theo dõi website, tối đa 4 giờ chỉnh sửa nhỏ mỗi tháng</td><td class="num">500.000 đ/tháng</td></tr>
+          <tr class="group"><td colspan="3">Nâng cấp theo lộ trình</td></tr>
+          <tr><td>Giai đoạn 2: thương mại điện tử</td><td>Shopify, giỏ hàng, PayPal, vận chuyển quốc tế, trang đơn hàng</td><td class="num">Từ 6.000.000 đ</td></tr>
+          <tr><td>Giai đoạn 3: bản tiếng Việt</td><td>Bật ngôn ngữ thứ hai, chuyển đổi ngôn ngữ, SEO đa ngôn ngữ</td><td class="num">Từ 3.000.000 đ</td></tr>
+          <tr class="group"><td colspan="3">Theo nhu cầu, bất kỳ lúc nào</td></tr>
+          <tr><td>Trang campaign / drop mới</td><td>Thiết kế và dựng trang riêng cho một bộ sưu tập</td><td class="num">Từ 1.500.000 đ/trang</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="label"><span class="mono idx">I</span><span class="mono">Điều khoản</span></div>
+  <div class="body">
+    <h2>Rõ ràng từ đầu</h2>
+    <div class="pay">
+      <div><div class="pct">50%</div><div class="when">Đặt cọc khi ký hợp đồng, bắt đầu dự án</div></div>
+      <div><div class="pct">30%</div><div class="when">Khi NOCTIS duyệt xong thiết kế</div></div>
+      <div><div class="pct">20%</div><div class="when">Khi ra mắt và bàn giao</div></div>
+    </div>
+    <div class="terms">
+      <div>
+        <h3>Bao gồm</h3>
+        <ul>
+          <li>Toàn bộ source code của website</li>
+          <li>Quyền sở hữu website thuộc về NOCTIS sau khi thanh toán đủ</li>
+          <li>Tài khoản domain, hosting, CMS đứng tên NOCTIS</li>
+          <li>Tài liệu và video hướng dẫn sử dụng CMS</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Chưa bao gồm</h3>
+        <ul>
+          <li>Viết nội dung, dịch thuật</li>
+          <li>Thiết kế logo hay bộ nhận diện mới</li>
+          <li>Nhập sản phẩm vượt số lượng trong gói</li>
+          <li>Chỉnh sửa vượt số vòng trong gói, báo giá theo từng yêu cầu</li>
+          <li>Thay đổi lớn về cấu trúc sau khi đã duyệt thiết kế</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="label"><span class="mono idx">J</span><span class="mono">Cần từ NOCTIS</span></div>
+  <div class="body">
+    <h2>Để bắt đầu</h2>
+    <p class="lead">Cần NOCTIS cung cấp thêm những thông tin này giúp mình chốt chính xác <em>phạm vi và thời gian</em>.</p>
+    <ul class="checklist">
+      <li><strong>Brand guideline</strong>: logo, font, màu, quy tắc sử dụng</li>
+      <li><strong>Số lượng khi ra mắt</strong>: sản phẩm, bộ sưu tập, nghệ sĩ</li>
+      <li><strong>1–2 website tham khảo</strong> NOCTIS thích (nếu có)</li>
+      <li><strong>Ảnh campaign và ảnh sản phẩm</strong> (bản gốc chất lượng cao)</li>
+      <li><strong>Nội dung tiếng Anh</strong> cho About, Community, Artists</li>
+      <li><strong>Danh sách đối tác ký gửi</strong> và địa chỉ</li>
+      <li><strong>Tên miền mong muốn</strong> và vài phương án dự phòng</li>
+      <li><strong>Ngày dự kiến soft launch</strong>, nếu đã có</li>
+    </ul>
+  </div>
+</section>
+
+<div class="close">
+  <span class="mono">Bước tiếp theo</span>
+  <h2>Chọn gói, mình bắt đầu ngay</h2>
+  <p class="lead">NOCTIS chỉ cần <em>phản hồi gói phù hợp</em> hoặc phần muốn điều chỉnh. Tất cả mọi thứ đều đã sẵn sàng.</p>
+  <div class="contact">
+    <a href="https://minhphan.vercel.app/" target="_blank" rel="noopener">minhphan.vercel.app</a>
+    <span class="mono">Portfolio &amp; các dự án đã thực hiện</span>
+  </div>
+</div>
+
+<footer>
+  <span class="mono">Minh Phan × NOCTIS</span>
+  <span class="mono">Đề xuất bảo mật, chỉ dành cho NOCTIS</span>
+</footer>
+
+</div>
+
+<script>
+(function () {
+  var h1 = document.getElementById('hero-title');
+  if (!h1) return;
+  var lines = h1.querySelectorAll('.line');
+  function fit() {
+    var mobile = window.matchMedia('(max-width: 760px)').matches;
+    var target = h1.clientWidth * (mobile ? 1 : 0.5);
+    if (!target) return;
+    lines.forEach(function (el) {
+      el.style.maxWidth = 'none';
+      el.style.fontSize = '100px';
+      var w = el.getBoundingClientRect().width;
+      if (w) el.style.fontSize = (100 * target / w).toFixed(2) + 'px';
+      el.style.maxWidth = '';
+    });
+  }
+  fit();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+  var t;
+  window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(fit, 60); });
+})();
+</script>
+
+</body></html>
