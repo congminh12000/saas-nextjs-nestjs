@@ -29,6 +29,8 @@ import freightekLogo from "../../images/freightek.webp";
 import freightekThumb from "../../images/freightek-thumb.jpg";
 import proshipLogo from "../../images/logo-proship-resize.png";
 import proshipThumb from "../../images/proship-thumb.jpg";
+import truongNuKieuMyLogo from "../../images/truongnukieumy-logo.png";
+import truongNuKieuMyThumb from "../../images/truongnukieumy-thumb.jpg";
 import scummyBearsLogo from "../../images/scummybears-logo.png";
 import scummyBearsThumb from "../../images/scummybears-thumb.jpg";
 import apocalypseClosetLogo from "../../images/apocalypsecloset-logo.webp";
@@ -107,6 +109,23 @@ const skillCards: SingleSkillCardProps[] = [
 ];
 
 const experienceFeatures = [
+    {
+        title: "Truong Nu Kieu My: Hospitality Art & Design Consultant",
+        titleSub: "Website portfolio nghệ thuật khách sạn",
+        description:
+            "Xây dựng website portfolio cho Truong Nu Kieu My, chuyên tư vấn và cung cấp tác phẩm nghệ thuật, điêu khắc cho các khách sạn cao cấp tại châu Á.",
+        frameworks: [
+            "WordPress",
+            "Theme tùy chỉnh",
+            "Portfolio dự án",
+            "Blog",
+            "SEO",
+        ],
+        linkUrl: "https://truongnukieumy.com/",
+        linkText: "Xem dự án",
+        logo: truongNuKieuMyLogo,
+        thumb: truongNuKieuMyThumb,
+    },
     {
         title: "Scummy Bears: Dark Streetwear, Alt, Goth & Rave Fashion",
         titleSub: "Website thương mại điện tử thời trang",
