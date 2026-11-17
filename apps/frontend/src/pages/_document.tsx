@@ -4,7 +4,7 @@ export default function Document(props: any) {
     return (
         <Html
             className="h-full scroll-smooth bg-security-black antialiased"
-            lang="vi"
+            lang={props.locale || "vi"}
         >
             <Head>
                 <link rel="icon" href="/favicon.ico" sizes="48x48" />

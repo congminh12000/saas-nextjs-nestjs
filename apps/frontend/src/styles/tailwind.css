@@ -527,3 +527,30 @@
         animation: none !important;
     }
 }
+
+/* ========================================
+   BLOG
+   ======================================== */
+
+.inline-code {
+    @apply rounded bg-security-mid px-1.5 py-0.5 font-mono text-[0.88em] text-accent;
+}
+
+/* Shiki output: keep its token colors, drop its own background */
+.blog-code pre {
+    background: transparent !important;
+    margin: 0;
+    font-family: var(--font-mono), ui-monospace, monospace;
+}
+.blog-code code {
+    counter-reset: line;
+}
+
+.blog-ol {
+    counter-reset: blog-ol;
+}
+.blog-ol-item::before {
+    counter-increment: blog-ol;
+    content: counter(blog-ol, decimal-leading-zero);
+    @apply mt-0.5 flex-shrink-0 font-mono text-sm text-accent;
+}

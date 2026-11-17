@@ -2,6 +2,8 @@
 
 Instructions for AI coding agents working in this pnpm monorepo.
 
+> **Portfolio website (apps/frontend):** before changing the portfolio site's content, design or deployment, read `apps/frontend/AGENTS.md`. It covers the design system, page structure, recipes and deploy flow.
+
 ## Project Structure
 
 - `apps/backend` - NestJS 11 API (TypeORM, PostgreSQL, Auth0, Stripe)

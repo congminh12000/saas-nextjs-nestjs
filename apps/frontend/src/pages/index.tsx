@@ -1,5 +1,6 @@
 import { Hero } from "../marketing-pages/index-home/Hero";
 import Layout from "../components/Layout";
+import { useT } from "../i18n";
 import type { components } from "../shared/types/api-specs";
 
 type UserDto = components["schemas"]["UserDto"];
@@ -11,10 +12,11 @@ export function getStaticProps() {
 }
 
 export default function Home({ user }: { user: UserDto }) {
+    const { t } = useT();
     return (
         <Layout
-            seoDescription="Phan Công Minh - Full-stack Developer với hơn 5 năm kinh nghiệm phát triển ứng dụng web bằng Next.js, NestJS, TypeScript. Xem kỹ năng và các dự án thực tế đã làm."
-            seoTitle="Phan Công Minh (Full-stack Developer)"
+            seoDescription={t.meta.homeDescription}
+            seoTitle={t.meta.homeTitle}
             headerTitle="Minh Phan"
             themeColor="violet"
         >

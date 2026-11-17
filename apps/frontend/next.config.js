@@ -1,6 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     reactStrictMode: true,
+    // Vietnamese stays on "/", English lives under "/en". No Accept-Language
+    // redirects so URLs stay stable for search engines.
+    i18n: {
+        locales: ["vi", "en"],
+        defaultLocale: "vi",
+        localeDetection: false,
+    },
     output: "standalone",
     images: {
         // AVIF is ~20-30% smaller than WebP; browsers without AVIF fall back to WebP

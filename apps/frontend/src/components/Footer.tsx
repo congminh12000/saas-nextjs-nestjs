@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Container } from "./Container";
+import { useT } from "../i18n";
 // import { GitHubIcon } from "./GithubIcon";
 
 export function Footer({
@@ -9,6 +10,7 @@ export function Footer({
     productKey?: string;
     headerTitle?: string;
 }) {
+    const { t } = useT();
     const currentYear = new Date().getFullYear();
 
     return (
@@ -24,7 +26,7 @@ export function Footer({
                                 className="font-mono text-lg text-security-light hover:text-accent transition-colors"
                             >
                                 <span className="text-accent">{">"}</span>{" "}
-                                {headerTitle || "MILLER_"}
+                                {headerTitle || "Minh Phan"}
                             </Link>
                             {/* <p className="text-sm text-security-muted">
                                 Built by{" "}
@@ -74,8 +76,8 @@ export function Footer({
                                 <span className="font-mono">GitHub</span>
                             </a> */}
                             <p className="font-mono text-xs text-security-text">
-                                &copy; {currentYear} Minh Phan. All rights
-                                reserved.
+                                &copy; {currentYear} Minh Phan.{" "}
+                                {t.footer.rights}
                             </p>
                         </div>
                     </div>

@@ -22,7 +22,7 @@ import type { components } from "../../shared/types/api-specs";
 //     TerminalWindow,
 //     TerminalPrompt,
 // } from "../../components/TerminalWindow";
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
 import portraitImage from "../../images/phan-cong-minh.png";
 import freightekLogo from "../../images/freightek.webp";
@@ -52,6 +52,7 @@ import {
 import zaloQrImage from "../../images/zalo-qr.jpg";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { useT, type ExperienceId } from "../../i18n";
 // import { ThemeColor } from "../../styles/themeColors";
 
 
@@ -108,145 +109,64 @@ const skillCards: SingleSkillCardProps[] = [
     },
 ];
 
-const experienceFeatures = [
+// Language-independent project data. Titles, descriptions and feature lists
+// live in src/i18n/{vi,en}.ts under experience.items[id]. Array order = display order.
+const experienceFeatures: {
+    id: ExperienceId;
+    linkUrl: string;
+    logo: StaticImageData;
+    logoClassName?: string;
+    thumb: StaticImageData;
+}[] = [
     {
-        title: "Truong Nu Kieu My: Hospitality Art & Design Consultant",
-        titleSub: "Website portfolio nghệ thuật khách sạn",
-        description:
-            "Xây dựng website portfolio cho Truong Nu Kieu My, chuyên tư vấn và cung cấp tác phẩm nghệ thuật, điêu khắc cho các khách sạn cao cấp tại châu Á.",
-        frameworks: [
-            "WordPress",
-            "Theme tùy chỉnh",
-            "Portfolio dự án",
-            "Blog",
-            "SEO",
-        ],
+        id: "truongnukieumy",
         linkUrl: "https://truongnukieumy.com/",
-        linkText: "Xem dự án",
         logo: truongNuKieuMyLogo,
         thumb: truongNuKieuMyThumb,
     },
     {
-        title: "Scummy Bears: Dark Streetwear, Alt, Goth & Rave Fashion",
-        titleSub: "Website thương mại điện tử thời trang",
-        description:
-            "Xây dựng cửa hàng online cho thương hiệu thời trang dark streetwear, alt, goth & rave.",
-        frameworks: [
-            "Shopify",
-            "Danh mục sản phẩm",
-            "Bộ sưu tập & Collab",
-            "Khuyến mãi theo giỏ hàng",
-            "Giỏ hàng & Thanh toán",
-        ],
+        id: "scummybears",
         linkUrl: "https://www.scummybears.com/",
-        linkText: "Xem dự án",
         logo: scummyBearsLogo,
         logoClassName: "invert",
         thumb: scummyBearsThumb,
     },
     {
-        title: "Apocalypse Closet: Gothic & Grunge Streetwear",
-        titleSub: "Website bán áo thun gothic",
-        description:
-            "Xây dựng website bán áo thun gothic in theo đơn (made to order) cho thương hiệu độc lập.",
-        frameworks: [
-            "Trang sản phẩm",
-            "Chọn màu & size",
-            "Lookbook",
-            "Journal",
-            "Thanh toán Fourthwall",
-        ],
+        id: "apocalypsecloset",
         linkUrl: "https://apocalypsecloset.com/",
-        linkText: "Xem dự án",
         logo: apocalypseClosetLogo,
         thumb: apocalypseClosetThumb,
     },
     {
-        title: "HELIOT EMIL: Official Site | Luxury Technical Fashion",
-        titleSub: "Website thương mại điện tử thời trang cao cấp",
-        description:
-            "Xây dựng cửa hàng online cho thương hiệu thời trang kỹ thuật cao cấp HELIOT EMIL (Đan Mạch).",
-        frameworks: [
-            "Shopify",
-            "Menswear & Womenswear",
-            "Bộ sưu tập theo mùa",
-            "Tài khoản khách hàng",
-            "Giỏ hàng & Thanh toán",
-        ],
+        id: "heliotemil",
         linkUrl: "https://heliotemil.com/",
-        linkText: "Xem dự án",
         logo: heliotEmilLogo,
         thumb: heliotEmilThumb,
     },
     {
-        title: "INF: An Independent Designer Brand Based in Taiwan",
-        titleSub: "Website thương hiệu thời trang thiết kế",
-        description:
-            "Xây dựng website cho thương hiệu thời trang thiết kế độc lập INF (Đài Loan).",
-        frameworks: [
-            "Squarespace",
-            "Online Shop",
-            "Lookbook & Bộ sưu tập",
-            "Cửa hàng vật lý",
-            "Tìm kiếm sản phẩm",
-        ],
+        id: "infdark",
         linkUrl: "https://www.infdark.com/",
-        linkText: "Xem dự án",
         logo: infDarkLogo,
         thumb: infDarkThumb,
     },
     {
-        title: "Freightek: Phần Mềm Freight Forwarder | Nền Tảng Doanh Nghiệp Logistics",
-        titleSub: "Phần Mềm Freight Forwarder",
-        description:
-            "Xây dựng nền tảng Digital FMS cho doanh nghiệp Freight Forwarder.",
-        frameworks: [
-            "Tracking",
-            "Quản Lý Giá Cước",
-            "Báo Giá Tự Động",
-            "Quản Lý Lô Hàng",
-            "Kế Toán",
-            "CRM & Phân Tích Dữ Liệu",
-        ],
+        id: "freightek",
         linkUrl: "https://www.freightekvietnam.com/",
-        linkText: "Xem dự án",
         logo: freightekLogo,
         thumb: freightekThumb,
     },
     {
-        title: "Proship Logistics: Giải pháp Vận chuyển Nhanh hơn, Tối ưu hơn cho Doanh nghiệp",
-        titleSub: "Phần mềm vận tải Logistics",
-        description: "Xây dựng nền tảng vận tải Logistic cho doanh nghiệp.",
-        frameworks: [
-            "vận tải đa phương thức",
-            "đại lý hải quan",
-            "trucking",
-            "vận tải hàng lạnh",
-            "cho thuê kho",
-            "vận tải quốc tế",
-        ],
+        id: "proship",
         linkUrl: "https://proship.vn/",
-        linkText: "Xem dự án",
         logo: proshipLogo,
         logoClassName: "brightness-125",
         thumb: proshipThumb,
     },
 ];
 
-const supplementCards = [
-    {
-        title: "AI",
-        description:
-            "Có khả năng sử dụng AI nhằm đẩy nhanh tốc độ, chất lượng và kết quả công việc.",
-    },
-    {
-        title: "Tự học",
-        description:
-            "Có khả năng nghiên cứu và cập nhật kiến thức mới để giải quyết các vấn đề phát sinh.",
-    },
-];
 
 export function Hero({ user: _user }: { user: UserDto }) {
+    const { t } = useT();
     const [isQrModalOpen, setIsQrModalOpen] = useState(false);
 
     useEffect(() => {
@@ -335,7 +255,7 @@ export function Hero({ user: _user }: { user: UserDto }) {
                         <AnimatedHeadline delay={0.1}>
                             <div>
                                 <span className="font-mono text-sm text-accent uppercase tracking-wider">
-                                    Full-Stack Developer (Web Applications)
+                                    {t.hero.role}
                                 </span>
                             </div>
                         </AnimatedHeadline>
@@ -344,23 +264,22 @@ export function Hero({ user: _user }: { user: UserDto }) {
                             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-security-light leading-tight tracking-tight">
                                 <span className="hidden md:inline">
                                     <TypewriterText
-                                        text="Phan Công Minh."
+                                        text={t.hero.name}
                                         speed={60}
                                         delay={500}
                                     />
                                 </span>
                                 <span className="md:hidden">
-                                    Phan Công Minh.
+                                    {t.hero.name}
                                 </span>
                             </h1>
                         </AnimatedHeadline>
 
                         <AnimatedHeadline delay={0.4}>
                             <p className="mt-6 text-lg md:text-xl text-security-text max-w-2xl leading-relaxed">
-                                Hơn 5 năm kinh nghiệm thực chiến phát triển ứng dụng web.
+                                {t.hero.introLine1}
                                 <br />
-                                Có khả năng ứng dụng AI nhằm nâng cao 50% hiệu suất công
-                                việc.
+                                {t.hero.introLine2}
                             </p>
                         </AnimatedHeadline>
 
@@ -380,7 +299,7 @@ export function Hero({ user: _user }: { user: UserDto }) {
                                     }}
                                     className="inline-flex items-center px-6 py-3 font-mono text-sm bg-accent text-security-black rounded-md hover:bg-accent-dim transition-all hover:shadow-glow"
                                 >
-                                    Nhắn tin Zalo
+                                    {t.hero.zalo}
                                     <ChatBubbleLeftRightIcon className="ml-2 h-4 w-4" />
                                 </Link>
                                 {/* <a
@@ -408,7 +327,7 @@ export function Hero({ user: _user }: { user: UserDto }) {
                         <div className="relative aspect-4/5 w-full overflow-hidden rounded-2xl border border-security-border bg-security-black/40 shadow">
                             <Image
                                 src={portraitImage}
-                                alt="Phan Công Minh - Full-stack Developer"
+                                alt={t.meta.portraitAlt}
                                 fill
                                 sizes="(min-width: 1280px) 480px, (min-width: 768px) 38vw, 92vw"
                                 className="object-cover"
@@ -451,10 +370,11 @@ export function Hero({ user: _user }: { user: UserDto }) {
                             >
                                 <div className="flex items-center justify-between">
                                     <h2 className="font-display text-xl text-security-light">
-                                        Quét mã QR
+                                        {t.hero.qrTitle}
                                     </h2>
                                     <Link
                                         href="#"
+                                        aria-label={t.hero.qrClose}
                                         onClick={() => setIsQrModalOpen(false)}
                                         className="text-security-text transition-colors hover:text-accent hover:scale-110 active:scale-100"
                                     >
@@ -479,14 +399,13 @@ export function Hero({ user: _user }: { user: UserDto }) {
                   <FadeInOnScroll>
                     <div className="flex items-center gap-4 mb-3">
                         <h2 className="font-display text-2xl md:text-3xl text-security-light">
-                            Kỹ Năng Chuyên Môn
+                            {t.skills.heading}
                         </h2>
                         <div className="h-px flex-1 bg-security-border" />
                     </div>
                     <div className="flex flex-wrap items-center gap-3 text-security-text">
                         <span className="font-mono text-xs uppercase tracking-wider text-security-muted">
-                            Full-stack (E2E): Requirements → Plan → Design → Build
-                            → Integrations → Test → CI/CD → Deploy → Monitor
+                            {t.skills.process}
                             <ArrowPathIcon className="ml-2 inline h-3.5 w-3.5 align-text-bottom" />
                         </span>
                         {/* <span className="text-sm md:text-base">
@@ -511,26 +430,23 @@ export function Hero({ user: _user }: { user: UserDto }) {
                 <section className="mt-24 md:mt-32">
                     <div className="flex items-center gap-4 mb-6">
                         <h2 className="font-display text-2xl md:text-3xl text-security-light">
-                            Kinh Nghiệm Thực Chiến
+                            {t.experience.heading}
                         </h2>
                         <div className="h-px flex-1 bg-security-border" />
                     </div>
                      <div className="flex flex-wrap items-center gap-3 text-security-text">
                         <span className="font-mono text-xs uppercase tracking-wider text-security-muted">
-                            Remote-First • Hybrid-Ready • On-site-Capable
+                            {t.experience.label}
                         </span>
                     </div>
 
                     <div className="space-y-6 mt-12">
                         {experienceFeatures.map((feature, index) => (
                             <SingleFeatureCard
-                                key={feature.title}
-                                title={feature.title}
-                                titleSub={feature.titleSub}
-                                description={feature.description}
-                                frameworks={feature.frameworks}
+                                key={feature.id}
+                                {...t.experience.items[feature.id]}
                                 linkUrl={feature.linkUrl}
-                                linkText={feature.linkText}
+                                linkText={t.experience.linkText}
                                 image={portraitImage}
                                 logo={feature.logo}
                                 thumb={feature.thumb}
@@ -545,20 +461,20 @@ export function Hero({ user: _user }: { user: UserDto }) {
                     {/* Option 1: Text on top + full-bleed image (active) */}
                     <div className="flex items-center gap-4 mb-6">
                         <h2 className="font-display text-2xl md:text-3xl text-security-light">
-                            Học Vấn
+                            {t.education.heading}
                         </h2>
                         <div className="h-px flex-1 bg-security-border" />
                     </div>
                     <div className="flex flex-wrap items-center gap-3 text-security-text">
                         <span className="font-mono text-xs uppercase tracking-wider text-security-muted">
-                            Cử nhân Công nghệ Thông tin (2012 - 2016)
+                            {t.education.label}
                         </span>
                     </div>
                     <div className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] mt-12">
                         <div className="relative h-[55vh] min-h-[320px] w-full overflow-hidden">
                             <Image
                                 src={educationImage}
-                                alt="Trường Đại học Nguyễn Tất Thành"
+                                alt={t.education.imageAlt}
                                 sizes="100vw"
                                 className="h-full w-full object-cover object-top"
                             />
@@ -640,18 +556,18 @@ export function Hero({ user: _user }: { user: UserDto }) {
                 <section className="mt-24 md:mt-32">
                     <div className="flex items-center gap-4 mb-3">
                         <h2 className="font-display text-2xl md:text-3xl text-security-light">
-                            Bổ Sung
+                            {t.supplement.heading}
                         </h2>
                         <div className="h-px flex-1 bg-security-border" />
                     </div>
                     <div className="flex flex-wrap items-center gap-3 text-security-text">
                         <span className="font-mono text-xs uppercase tracking-wider text-security-muted">
-                            Thông tin khác
+                            {t.supplement.label}
                         </span>
                     </div>
 
                     <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
-                        {supplementCards.map((card, index) => (
+                        {t.supplement.cards.map((card, index) => (
                             <FadeInOnScroll
                                 key={card.title}
                                 delay={0.06 * (index + 1)}
